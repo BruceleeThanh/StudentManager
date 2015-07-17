@@ -64,18 +64,20 @@ namespace BusinessLogic {
         }
 
         // Insert new Student
-        public void Insert (Student aStudent) {
+        public bool Insert (Student aStudent) {
             try {
                 db.Students.InsertOnSubmit(aStudent);
                 db.SubmitChanges();
+                return true;
             }
             catch (Exception ex) {
+                return false;
                 throw new Exception("StudentBO.Insert:" + ex.ToString());
             }
         }
 
         // Update Student
-        public void Update (Student aStudent) {
+        public bool Update (Student aStudent) {
             try {
                 var editObj = db.Students.Where(b => b.Stu_Code == aStudent.Stu_Code).ToList<Student>();
                 foreach (Student temp in editObj) {
@@ -88,20 +90,24 @@ namespace BusinessLogic {
                     temp.Stu_Ethnic = aStudent.Stu_Ethnic;
                 }
                 db.SubmitChanges();
+                return true;
             }
             catch (Exception ex) {
+                return false;
                 throw new Exception("StudentBO.Update:" + ex.ToString());
             }
         }
 
         // Delete Student
-        public void Delete (string Id) {
+        public bool Delete (string Id) {
             try {
                 var deleteObj = db.Students.Where(b => b.Stu_Code == Id).ToList<Student>();
                 db.Students.DeleteAllOnSubmit(deleteObj);
                 db.SubmitChanges();
+                return true;
             }
             catch (Exception ex) {
+                return false;
                 throw new Exception("StudentBO.Delete:" + ex.ToString());
             }
         }
