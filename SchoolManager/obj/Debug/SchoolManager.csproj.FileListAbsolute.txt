@@ -1,0 +1,49 @@
+E:\Workspace\Csharp Winform projects\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe.config
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe.config
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.pdb
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csprojResolveAssemblyReference.cache
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Login.resources
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Main.resources
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Form_Task.frmTsk_AddStu.resources
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Properties.Resources.resources
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csproj.GenerateResource.Cache
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe.licenses
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe
+C:\Users\Ntlzz\AppData\Roaming\Skype\My Skype Received Files\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.pdb
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe.config
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.pdb
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.pdb
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Interaction.dll
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Extensibility.dll
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Interaction.xml
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Extensibility.xml
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csprojResolveAssemblyReference.cache
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Login.resources
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Main.resources
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Form_Task.frmTsk_AddStu.resources
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Properties.Resources.resources
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csproj.GenerateResource.Cache
+E:\New folder\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe.licenses
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.pdb
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.exe
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\SchoolManager.pdb
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Interaction.dll
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Extensibility.dll
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Interaction.xml
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\Microsoft.Windows.Design.Extensibility.xml
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csprojResolveAssemblyReference.cache
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Login.resources
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Design.Main.resources
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Form_Task.frmTsk_AddStu.resources
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Properties.Resources.resources
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.csproj.GenerateResource.Cache
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.exe.licenses
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\obj\Debug\SchoolManager.Form_Task.frmTsk_UpdStu.resources
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\BusinessLogic.dll
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\DataAccess.dll
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\BusinessLogic.pdb
+E:\Workspace\Csharp Winform projects\SchoolsManager\SchoolsManager\SchoolManager\SchoolManager\bin\Debug\DataAccess.pdb
