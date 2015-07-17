@@ -13,7 +13,7 @@ namespace BusinessLogic {
 
         private DbDataContext db = new DbDataContext();
         
-        // Select all Student from DB
+        // Select all Student from DB 
         public List<Student> Select_All () {
             try {
                 return db.Students.OrderByDescending(b => b.Stu_Code).ToList<Student>();
@@ -43,6 +43,67 @@ namespace BusinessLogic {
             }
         }
 
-        // Insert new
+        // Select all Student by Religion
+        public List<Student> Select_ByReligion (string Religion) {
+            try {
+                return db.Students.Where(b => b.Stu_Religion == Religion).ToList<Student>();
+            }
+            catch (Exception ex){
+                throw new Exception("StudentBO.Select_ByReligion:" + ex.ToString());
+            }
+        }
+
+        // Select all Student by Ethnic
+        public List<Student> Select_ByEthnic (string Ethnic) {
+            try {
+                return db.Students.Where(b => b.Stu_Ethnic == Ethnic).ToList<Student>();
+            }
+            catch (Exception ex) {
+                throw new Exception("StudentBO.Select_ByEthnic:" + ex.ToString());
+            }
+        }
+
+        // Insert new Student
+        public void Insert (Student aStudent) {
+            try {
+                db.Students.InsertOnSubmit(aStudent);
+                db.SubmitChanges();
+            }
+            catch (Exception ex) {
+                throw new Exception("StudentBO.Insert:" + ex.ToString());
+            }
+        }
+
+        // Update Student
+        public void Update (Student aStudent) {
+            try {
+                var editObj = db.Students.Where(b => b.Stu_Code == aStudent.Stu_Code).ToList<Student>();
+                foreach (Student temp in editObj) {
+                    temp.Stu_Name = aStudent.Stu_Name;
+                    temp.Stu_DateOfBirth = aStudent.Stu_DateOfBirth;
+                    temp.Stu_HomeTown = aStudent.Stu_HomeTown;
+                    temp.Stu_Address = aStudent.Stu_Address;
+                    temp.Stu_PhoneNumber = aStudent.Stu_PhoneNumber;
+                    temp.Stu_Religion = aStudent.Stu_Religion;
+                    temp.Stu_Ethnic = aStudent.Stu_Ethnic;
+                }
+                db.SubmitChanges();
+            }
+            catch (Exception ex) {
+                throw new Exception("StudentBO.Update:" + ex.ToString());
+            }
+        }
+
+        // Delete Student
+        public void Delete (string Id) {
+            try {
+                var deleteObj = db.Students.Where(b => b.Stu_Code == Id).ToList<Student>();
+                db.Students.DeleteAllOnSubmit(deleteObj);
+                db.SubmitChanges();
+            }
+            catch (Exception ex) {
+                throw new Exception("StudentBO.Delete:" + ex.ToString());
+            }
+        }
     }
 }
