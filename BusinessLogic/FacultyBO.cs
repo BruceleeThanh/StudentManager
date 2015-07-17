@@ -50,23 +50,24 @@ namespace BusinessLogic
 		}
 
 		// insert new Faculty 
-		public void Insert(Faculty aFaculty)
+		public bool Insert(Faculty aFaculty)
 		{
 			try
 			{
 				db.Faculties.InsertOnSubmit(aFaculty);
 				db.SubmitChanges();
-			
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("FacultyBO.Insert: " + ex.ToString());
 			}
 		}
 
 		// update Faculty
 
-		public void Update(Faculty aFaculty)
+		public bool Update(Faculty aFaculty)
 		{
 			try
 			{
@@ -75,19 +76,20 @@ namespace BusinessLogic
 							select m;
 				foreach (var oFa in obj)
 				{
-					oFa.Fac_Code = aFaculty.Fac_Code;
 					oFa.Fac_Name = aFaculty.Fac_Name;
 				}
 				db.SubmitChanges();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("FacultyBO.Update: " + ex.ToString());
 			}
 		}
 
 		// delete Faculty
-		public void Delete(Faculty aFaculty)
+		public bool Delete(Faculty aFaculty)
 		{
 			try
 			{
@@ -99,9 +101,11 @@ namespace BusinessLogic
 					db.Faculties.DeleteOnSubmit(oFa);
 				}
 				db.SubmitChanges();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("FacultyBO.Update: " + ex.ToString());
 			}
 		}

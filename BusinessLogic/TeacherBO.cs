@@ -51,20 +51,22 @@ namespace BusinessLogic
 			}
 		}
 		// Insert
-		public void Insert(Teacher aTeacher)
+		public bool Insert(Teacher aTeacher)
 		{
 			try
 			{
 				db.Teachers.InsertOnSubmit(aTeacher);
 				db.SubmitChanges();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("TeacherBO.Insert" + ex.ToString());
 			}
 		} 
 		// Update
-		public void Update(Teacher aTeacher)
+		public bool Update(Teacher aTeacher)
 		{
 			try
 			{
@@ -73,7 +75,6 @@ namespace BusinessLogic
 						  select m;
 				foreach (var cur in obj)
 				{
-					cur.Tea_Code = aTeacher.Tea_Code;
 					cur.Tea_Name = aTeacher.Tea_Name;
 					cur.Tea_Address = aTeacher.Tea_Address;
 					cur.Tea_DateOfBirth = aTeacher.Tea_DateOfBirth;
@@ -83,14 +84,16 @@ namespace BusinessLogic
 					cur.Tea_Religion = aTeacher.Tea_Religion;
 				}
 				db.SubmitChanges();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("TeacherBO.Update" + ex.ToString());
 			}
 		}
 		// Delete
-		public void Delete(Teacher aTeacher)
+		public bool Delete(Teacher aTeacher)
 		{
 			try
 			{
@@ -102,9 +105,11 @@ namespace BusinessLogic
 					db.Teachers.DeleteOnSubmit(cur);
 				}
 				db.SubmitChanges();
+				return true;
 			}
 			catch (Exception ex)
 			{
+				return false;
 				throw new Exception("TeacherBO.Delete" + ex.ToString());
 			}
 		}
