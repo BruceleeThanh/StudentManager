@@ -16,13 +16,13 @@ namespace SchoolManager.Entity
 		public int TermCode { get; set; }
 		public string SubjectCode { get; set; }
 		public int? TeacherCode { get; set; }
-		public string RoomStatus { get; set; }
+		public string TimeTableCourseRoom { get; set; }
 		public void SetValue(TimeTableCourse aTimeTC)
 		{
 			this.SubjectCode = aTimeTC.Sub_Code;
 			this.TeacherCode = aTimeTC.Tea_Code;
 			this.TermCode = aTimeTC.Ter_Code;
-			this.RoomStatus = aTimeTC.Ttc_Room;
+			this.TimeTableCourseRoom = aTimeTC.Ttc_Room;
 		}
 	}
 }
