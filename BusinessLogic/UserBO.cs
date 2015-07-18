@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using DataAccess;
 
 namespace BusinessLogic
@@ -40,20 +41,22 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var user = db.Users.Where(b => b.Use_Name == name).Where(b => b.Use_Password == password).ToList<User>();
-					if (user.Any())
-					{
-						return true;
-					}
-					else
-					{
-						return false;
-					}
+                string passSHA1;
+                passSHA1 = ToSHA1(password);
+                var user = db.Users.Where(b => b.Use_Name == name).Where(b => b.Use_Password == passSHA1).ToList<User>();
+				if (user.Any())
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 				
 			}
 			catch (Exception ex)
 			{
-				return false;
+				
 				throw new Exception("UserBO.Login" + ex.ToString());
 			}
 		}
@@ -62,6 +65,7 @@ namespace BusinessLogic
 		{
 			try
 			{
+                aUser.Use_Password = ToSHA1(aUser.Use_Password);
 				db.Users.InsertOnSubmit(aUser);
 				db.SubmitChanges();
 				return true;
@@ -72,5 +76,18 @@ namespace BusinessLogic
 				throw new Exception("UserBO.Insert" + ex.ToString());
 			}
 		}
+
+        // SHA1
+        private string ToSHA1 (string pass) {
+            SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+            byte[] bs = System.Text.Encoding.UTF8.GetBytes(pass);
+            bs = sha1.ComputeHash(bs);
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+            foreach (byte b in bs) {
+                s.Append(b.ToString("x1").ToLower());
+            }
+            pass = s.ToString();
+            return pass;
+        }
 	}
 }
