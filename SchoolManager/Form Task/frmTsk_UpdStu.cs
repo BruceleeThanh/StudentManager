@@ -10,28 +10,27 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SchoolManager.Entity;
 using DataAccess;
+using BusinessLogic;
 
 namespace SchoolManager.Form_Task {
     public partial class frmTsk_UpdStu : DevExpress.XtraEditors.XtraForm {
-        private DbDataContext db = new DbDataContext ( );
-        private List<Student> stu = new List<Student> ( );
-        StudentEn stuEn = new StudentEn ();       
+        private StudentBO aStudentBO = new StudentBO();
+        private Student aStudent = new Student();
 
         public frmTsk_UpdStu( ) {
             InitializeComponent ( );
         }
 
         private void btnSearch_Click( object sender, EventArgs e ) {
-            stu = db.Students.Where ( b => b.Stu_Code == txtCode.Text ).Distinct().ToList<Student> ( );
-            if ( stu != null ) {
-                txtCode.Enabled = false;
-                txtName.Text = stu[0].Stu_Name;
-                editDate.Text = stu[0].Stu_DateOfBirth.ToString();
-                txtHomeTown.Text = stu[0].Stu_HomeTown;
-                txtAddress.Text = stu[0].Stu_Address;
-                txtPhone.Text = stu[0].Stu_PhoneNumber;
-                txtEthnic.Text = stu[0].Stu_Ethnic;
-                txtReligion.Text = stu[0].Stu_Religion;
+            aStudent = aStudentBO.Select_ById(txtCode.Text).First();
+            if (aStudent != null) {
+                txtName.Text = aStudent.Stu_Name;
+                editDate.Text = aStudent.Stu_DateOfBirth.ToString();
+                txtHomeTown.Text = aStudent.Stu_HomeTown;
+                txtAddress.Text = aStudent.Stu_Address;
+                txtPhone.Text = aStudent.Stu_PhoneNumber;
+                txtEthnic.Text = aStudent.Stu_Ethnic;
+                txtReligion.Text = aStudent.Stu_Religion;
 
             } else {
                 MessageBox.Show("Không tìm thấy thông tin.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -44,35 +43,24 @@ namespace SchoolManager.Form_Task {
 
         private void SaveInforStudent( ) {
             try {
-                Student stu = new Student ( );
-                stu.Stu_Code = txtCode.Text;
-                stu.Stu_Name = txtName.Text;
-                stu.Stu_DateOfBirth = editDate.Value;
-                stu.Stu_HomeTown = txtHomeTown.Text;
-                stu.Stu_Address = txtAddress.Text;
-                stu.Stu_PhoneNumber = txtPhone.Text;
-
-                stuEn.setValue ( stu );
-                db.Students.InsertOnSubmit ( stu );
-                db.SubmitChanges ( );
-                int temp = db.Students.Count ( );
-                if ( db.Students.Count ( ) == temp + 1 )
+                aStudent.Stu_Name = txtName.Text;
+                aStudent.Stu_DateOfBirth = editDate.Value;
+                aStudent.Stu_HomeTown = txtHomeTown.Text;
+                aStudent.Stu_Address = txtAddress.Text;
+                aStudent.Stu_PhoneNumber = txtPhone.Text;
+                aStudent.Stu_Ethnic = txtEthnic.Text;
+                aStudent.Stu_Religion = txtReligion.Text;
+                if (aStudentBO.Update(aStudent))
 				{
-                    MessageBox.Show ( "Sử thông tin thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information );
+                    MessageBox.Show ( "Sửa thông tin thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information );
                     this.Visible = false;
                 } else {
-                    MessageBox.Show ( "Không thể sửa được thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                    MessageBox.Show ( "Không thể sửa được thông tin.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error );
                 }
-
             }
             catch ( Exception ex ) {
                 MessageBox.Show ( ex.ToString ( ), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
         }
-        // chon ton giao
-        private void comboBoxReligion_SelectedIndexChanged( object sender, EventArgs e ) {
-
-        }
-
     }
 }

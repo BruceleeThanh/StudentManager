@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using SchoolManager.Entity;
 using DataAccess;
+using BusinessLogic;
 
 namespace SchoolManager.Form_Task {
     public partial class frmTsk_AddStu : DevExpress.XtraEditors.XtraForm {
-		private DbDataContext db = new DbDataContext();
 
+        private StudentBO aStudentBO = new StudentBO();
+        private FacultyBO aFacultyBO = new FacultyBO();
+        private SpecializationBO aSpecializationBO = new SpecializationBO();
+        private StudentFacultyBO aStudentFacultyBO = new StudentFacultyBO();
 		//StudentEn stEN = new StudentEn();
 
         public frmTsk_AddStu () {
@@ -44,40 +48,18 @@ namespace SchoolManager.Form_Task {
                 stu.Stu_PhoneNumber = txtPhone.Text;
                 stu.Stu_Ethnic = txtEth.Text;
                 stu.Stu_Religion = txtReligion.Text;
+                stu.Stu_StudyStatus = 1;
 
                 // xu ly khoa va chuyen nganh
                 StudentFaculty stFa = new StudentFaculty();
 
-
-                //if (cmbFaculty.SelectedItem != null && cmbSpecialization.SelectedItem != null) {
-
-
-                //    stFa.Stu_Code = stu.Stu_Code;
-
-                //    var q = from m in db.Faculties where m.Fac_Name == cmbFaculty.SelectedItem select m.Fac_Code;
-
-                //    stFa.Fac_Code = Int32.Parse(q.ToString()); // convert from string to int
-
-                //    var p = from m in db.Specializations where m.Spe_Name == cmbSpecialization.SelectedItem select m.Spe_Code;
-                //    stFa.Spe_Code = Int32.Parse(p.ToString());
-
-                //}
-
                 stFa.Stu_Code = stu.Stu_Code;
-                List<int> CurrentFaculty = db.Faculties.Where(b => b.Fac_Name == cmbFaculty.SelectedValue.ToString()).Select(b => b.Fac_Code).Distinct().ToList();
-                List<int> CurrentSpecialization = db.Specializations.Where(b => b.Spe_Name == cmbSpecialization.SelectedValue.ToString()).Select(b => b.Spe_Code).Distinct().ToList();
-                stFa.Fac_Code = CurrentFaculty[0];
-                stFa.Spe_Code = CurrentSpecialization[0];
-
-
-				// get data for StudentEN object
-				//stEN.setValue(stu);
+                stFa.Fac_Code = aFacultyBO.Select_ByName(cmbFaculty.SelectedValue.ToString()).Select(b => b.Fac_Code).FirstOrDefault();
+                stFa.Spe_Code = aSpecializationBO.Select_ByName(cmbSpecialization.SelectedValue.ToString()).Select(b => b.Spe_Code).FirstOrDefault();
 
                 if (txtStuCode.Text != "" && txtStuName.Text != "" && txtAddress.Text != "") {
-                    db.Students.InsertOnSubmit(stu);
-                    db.StudentFaculties.InsertOnSubmit(stFa);
-                    db.SubmitChanges();
-                    if (db.Students.Count() > 0) {
+                    
+                    if (aStudentBO.Insert(stu) && aStudentFacultyBO.Insert(stFa)) {
                         MessageBox.Show("Thêm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -87,7 +69,7 @@ namespace SchoolManager.Form_Task {
                 }
                 else {
 
-                    MessageBox.Show("Không được để trống mã,tên sinh viên và địa chỉ.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không được để trống mã, tên sinh viên và địa chỉ.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -98,12 +80,12 @@ namespace SchoolManager.Form_Task {
 
         private void LoadFaculty () {
             cmbFaculty.SelectedValueChanged += new EventHandler(LoadSpecialization);
-            cmbFaculty.DataSource = db.Faculties.Select(b => b.Fac_Name).ToList<string>();
+            cmbFaculty.DataSource = aFacultyBO.Select_All().Select(b => b.Fac_Name).ToList<string>();
         }
 
-        public void LoadSpecialization (object sender, EventArgs e) {
-            List<int> CurrentFaculty = db.Faculties.Where(b => b.Fac_Name == cmbFaculty.SelectedValue.ToString()).Select(b => b.Fac_Code).Distinct().ToList();
-            cmbSpecialization.DataSource = db.Specializations.Where(b => b.Fac_Code == CurrentFaculty[0]).Select(b => b.Spe_Name).ToList<string>();
+        private void LoadSpecialization (object sender, EventArgs e) {
+            int CurrentFaculty = aFacultyBO.Select_ByName(cmbFaculty.SelectedValue.ToString()).Select(b => b.Fac_Code).FirstOrDefault();
+            cmbSpecialization.DataSource = aSpecializationBO.Select_ByFacultyCode(CurrentFaculty).Select(b => b.Spe_Name).ToList<string>();
         }
         
     }
