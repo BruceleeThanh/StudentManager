@@ -9,46 +9,73 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataAccess;
+using BusinessLogic;
 
 namespace SchoolManager.Design {
     public partial class Login : DevExpress.XtraEditors.XtraForm {
-		private DbDataContext db = new DbDataContext();
+		//private DbDataContext db = new DbDataContext();
         public Login () {
             InitializeComponent();
         }
 		
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
-			var q = from m in db.Users
-					where m.Use_Name == txtUserName.Text && m.Use_Password == txtPassword.Text
-					select m;
+			//var q = from m in db.Users
+			//		where m.Use_Name == txtUserName.Text && m.Use_Password == txtPassword.Text
+			//		select m;
 
-			if (q.Any())
+			//if (q.Any())
+			//{
+			//	Main aMain = new Main();
+			//	aMain.Show();
+			//	this.Visible = false;
+			//}
+			//else
+			//{
+			//	MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			//}
+			UserBO user = new UserBO();
+			string username = txtUserName.Text;
+			string password = txtPassword.Text;
+			if (user.Login(username, password) == true)
 			{
 				Main aMain = new Main();
-                aMain.Show();
+				aMain.Show();
 				this.Visible = false;
 			}
 			else
 			{
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
         private void MatchingEnterPress (object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.Enter) {
-                var q = from m in db.Users
-                        where m.Use_Name == txtUserName.Text && m.Use_Password == txtPassword.Text
-                        select m;
+				//var q = from m in db.Users
+				//		where m.Use_Name == txtUserName.Text && m.Use_Password == txtPassword.Text
+				//		select m;
 
-                if (q.Any()) {
-                    Main aMain = new Main();
-                    aMain.Show();
-                    this.Visible = false;
-                }
-                else {
-                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+				//if (q.Any()) {
+				//	Main aMain = new Main();
+				//	aMain.Show();
+				//	this.Visible = false;
+				//}
+				//else {
+				//	MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				//}
+				UserBO user = new UserBO();
+				string username = txtUserName.Text;
+				string password = txtPassword.Text;
+				if (user.Login(username, password) == true)
+				{
+					Main aMain = new Main();
+					aMain.Show();
+					this.Visible = false;
+				}
+				else
+				{
+					MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
             }
         }
       
