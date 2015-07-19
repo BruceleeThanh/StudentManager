@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using DataAccess;
 
+
 namespace BusinessLogic
 {
-	public class UserBO
+	public class UserBO 
 	{
 		private DbDataContext db = new DbDataContext();
+		
 		// Select By All
 		public List<User> Select_ByAll()
 		{
@@ -21,6 +23,19 @@ namespace BusinessLogic
 			catch (Exception ex)
 			{
 				throw new Exception("UserBO.Select_ByAll" + ex.ToString());
+			}
+		}
+		// Select By Name
+		public List<User> Select_ByName(string name)
+		{
+
+			try
+			{
+				return db.Users.Where(b => b.Use_Name == name).ToList<User>();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("UserBO.Select_ByName" + ex.ToString());
 			}
 		}
 		//Select By Name and Password
@@ -61,10 +76,11 @@ namespace BusinessLogic
 			}
 		}
 		// Insert -- Register
-		public bool Insert(User aUser)
+		public bool Register(User aUser)
 		{
 			try
 			{
+				// encrypt password 
                 aUser.Use_Password = ToSHA1(aUser.Use_Password);
 				db.Users.InsertOnSubmit(aUser);
 				db.SubmitChanges();
@@ -89,5 +105,25 @@ namespace BusinessLogic
             pass = s.ToString();
             return pass;
         }
+		// Get username to compare
+		public bool CheckName(string name)
+		{
+			try
+			{
+				string temp =  db.Users.Where(b => b.Use_Name == name).Select(b=>b.Use_Name).ToString();
+				if (temp != null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("GetName" + ex.ToString());
+			}
+		}
 	}
 }

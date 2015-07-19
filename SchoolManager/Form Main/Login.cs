@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataAccess;
 using BusinessLogic;
+using SchoolManager.Form_Main;
 
 namespace SchoolManager.Design {
     public partial class Login : DevExpress.XtraEditors.XtraForm {
@@ -54,6 +55,12 @@ namespace SchoolManager.Design {
 				
             }
         }
+		// button register of login form
+		private void btn_Register_Click(object sender, EventArgs e)
+		{
+			Register aRegister = new Register();
+			aRegister.Show();
+		}
       
     }
 }
