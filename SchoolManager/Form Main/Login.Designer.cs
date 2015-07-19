@@ -26,7 +26,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
 			this.txtPassword = new DevExpress.XtraEditors.TextEdit();
 			this.txtUserName = new DevExpress.XtraEditors.TextEdit();
-			this.btn_Register = new DevExpress.XtraEditors.SimpleButton();
 			this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
 			this.pictureEdit3 = new DevExpress.XtraEditors.PictureEdit();
 			this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
@@ -60,16 +59,6 @@
 			this.txtUserName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
 			this.txtUserName.Size = new System.Drawing.Size(198, 20);
 			this.txtUserName.TabIndex = 9;
-			// 
-			// btn_Register
-			// 
-			this.btn_Register.Image = ((System.Drawing.Image)(resources.GetObject("btn_Register.Image")));
-			this.btn_Register.Location = new System.Drawing.Point(223, 159);
-			this.btn_Register.Name = "btn_Register";
-			this.btn_Register.Size = new System.Drawing.Size(124, 26);
-			this.btn_Register.TabIndex = 15;
-			this.btn_Register.Text = "Đăng Kí";
-			this.btn_Register.Click += new System.EventHandler(this.btn_Register_Click);
 			// 
 			// pictureEdit1
 			// 
@@ -124,7 +113,6 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(504, 261);
-			this.Controls.Add(this.btn_Register);
 			this.Controls.Add(this.pictureEdit1);
 			this.Controls.Add(this.pictureEdit3);
 			this.Controls.Add(this.pictureEdit2);
@@ -150,7 +138,6 @@
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtUserName;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
-		private DevExpress.XtraEditors.SimpleButton btn_Register;
+		private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

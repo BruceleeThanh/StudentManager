@@ -55,12 +55,7 @@ namespace SchoolManager.Design {
 				
             }
         }
-		// button register of login form
-		private void btn_Register_Click(object sender, EventArgs e)
-		{
-			Register aRegister = new Register();
-			aRegister.Show();
-		}
+		
       
     }
 }
