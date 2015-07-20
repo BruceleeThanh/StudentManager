@@ -41,7 +41,7 @@ namespace SchoolManager.Design {
 			frmTsk_AddTeacher aFrmTask = new frmTsk_AddTeacher();
 			aFrmTask.Show();
 
-		}
+        }
 		
     }
 }
