@@ -43,7 +43,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.Users.Where(b => b.Use_Name == name).Where(b=>b.Use_Password == pass).ToList<User>();
+                return db.Users.Where(b => b.Use_Name == name).Where(b => b.Use_Password == ToSHA1(pass)).ToList<User>();
 			}
 			catch (Exception ex)
 			{
