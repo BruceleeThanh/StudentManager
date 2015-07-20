@@ -25,7 +25,7 @@ namespace SchoolManager.Design {
 			UserBO user = new UserBO();
 			string username = txtUserName.Text;
 			string password = txtPassword.Text;
-			if (user.Login(username, password) == true)
+			if (user.Insert(username, password) == true)
 			{
 				Main aMain = new Main();
 				aMain.Show();
@@ -42,7 +42,7 @@ namespace SchoolManager.Design {
 				UserBO user = new UserBO();
 				string username = txtUserName.Text;
 				string password = txtPassword.Text;
-				if (user.Login(username, password) == true)
+				if (user.Insert(username, password) == true)
 				{
 					Main aMain = new Main();
 					aMain.Show();
