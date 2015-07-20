@@ -30,7 +30,7 @@ namespace SchoolManager.Form_Main
 			User aUser = new User();
 			// Check Username is exits
 			// If db is not exits then register success, otherwise register fail
-			if (aUserBO.CheckName(txtUserName.Text))
+			if (aUserBO.Select_ByName(txtUserName.Text) == null)
 			{
 				aUser.Use_Name = txtUserName.Text;
 				aUser.Use_Password = txtUserName.Text;
@@ -53,7 +53,7 @@ namespace SchoolManager.Form_Main
 				User aUser = new User();
 				// Check Username is exits
 				// If db is not exits then register success, otherwise register fail
-				if (aUserBO.CheckName(txtUserName.Text))
+				if (aUserBO.Select_ByName(txtUserName.Text) == null)
 				{
 					aUser.Use_Name = txtUserName.Text;
 					aUser.Use_Password = txtUserName.Text;

@@ -29,10 +29,18 @@ namespace SchoolManager.Design {
         private void Main_FormClosed (object sender, FormClosedEventArgs e) {
             
         }
-
+		// Update Student Button
         private void barBtnUpdateStu_ItemClick (object sender, ItemClickEventArgs e) {
             frmTsk_UpdStu frmUpd = new frmTsk_UpdStu();
             frmUpd.Show();
+		}
+		// LoiNT
+		// Add Teacher Button
+		private void barBtnAddTeacher_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			frmTsk_AddTeacher aFrmTask = new frmTsk_AddTeacher();
+			aFrmTask.Show();
+
 		}
 		
     }

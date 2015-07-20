@@ -50,9 +50,9 @@ namespace BusinessLogic
 				throw new Exception("UserBO.Select_ByNameAndPass" + ex.ToString());
 			}
 		}
-		//  Login
-		// Check username and password of user is correct
-		public bool Login(string name, string password)
+		
+		// Insert
+		public bool Insert(string name, string password)
 		{
 			try
 			{
@@ -105,25 +105,6 @@ namespace BusinessLogic
             pass = s.ToString();
             return pass;
         }
-		// Get username to compare
-		public bool CheckName(string name)
-		{
-			try
-			{
-				string temp =  db.Users.Where(b => b.Use_Name == name).Select(b=>b.Use_Name).ToString();
-				if (temp != null)
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			}
-			catch (Exception ex)
-			{
-				throw new Exception("GetName" + ex.ToString());
-			}
-		}
+		
 	}
 }

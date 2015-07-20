@@ -50,6 +50,18 @@ namespace BusinessLogic
 				throw new Exception("TeacherBO.Select_ByName" + ex.ToString());
 			}
 		}
+		// Select by Phone Number
+		public List<Teacher> Select_ByPhoneNumber(string phonenumber)
+		{
+			try
+			{
+				return db.Teachers.Where(b => b.Tea_PhoneNumber == phonenumber).ToList<Teacher>();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("TeacherBO.Select_ByPhoneNumber" + ex.ToString());
+			}
+		}
 		// Insert
 		public bool Insert(Teacher aTeacher)
 		{
