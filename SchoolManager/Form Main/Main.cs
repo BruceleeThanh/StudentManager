@@ -42,6 +42,102 @@ namespace SchoolManager.Design {
 			aFrmTask.Show();
 
         }
+
+        private void barBtnPrintInforStu_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnPrintGradeStu_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnPrintRecieStu_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnSearchStu_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnUpdateTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnPrintTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnExcuteSalary_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnSearchTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnAddSubject_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnUpdateSubject_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnPrintInforSubject_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnSearchSubject_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnSearchFaculty_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnPrintFaculty_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnLearnRegister_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnInsertGrade_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnRankGrade_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnRank_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnStudentChallenge_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnFeesOwe_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnBan_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnAverageGrade_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnSubjectChart_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
+
+        private void barBtnInforSystemUser_ItemClick( object sender, ItemClickEventArgs e ) {
+
+        }
 		
     }
 }

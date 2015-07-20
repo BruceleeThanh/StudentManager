@@ -25,9 +25,9 @@
         private void InitializeComponent () {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnAddStudent = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnUpdateStu = new DevExpress.XtraBars.BarButtonItem();
@@ -65,6 +65,7 @@
             this.barBtnPrintTeacher = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnExcuteSalary = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnSearchTeacher = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnInforSystemUser = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -82,6 +83,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageCategory3 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -106,8 +108,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnInforSystemUser = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -202,6 +202,7 @@
             this.barBtnPrintInforStu.Id = 4;
             this.barBtnPrintInforStu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintInforStu.LargeGlyph")));
             this.barBtnPrintInforStu.Name = "barBtnPrintInforStu";
+            this.barBtnPrintInforStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintInforStu_ItemClick);
             // 
             // barBtnStudentChallenge
             // 
@@ -210,6 +211,7 @@
             this.barBtnStudentChallenge.Id = 6;
             this.barBtnStudentChallenge.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnStudentChallenge.LargeGlyph")));
             this.barBtnStudentChallenge.Name = "barBtnStudentChallenge";
+            this.barBtnStudentChallenge.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnStudentChallenge_ItemClick);
             // 
             // barBtnAddSubject
             // 
@@ -218,6 +220,7 @@
             this.barBtnAddSubject.Id = 7;
             this.barBtnAddSubject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnAddSubject.LargeGlyph")));
             this.barBtnAddSubject.Name = "barBtnAddSubject";
+            this.barBtnAddSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAddSubject_ItemClick);
             // 
             // barBtnUpdateSubject
             // 
@@ -226,6 +229,7 @@
             this.barBtnUpdateSubject.Id = 8;
             this.barBtnUpdateSubject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnUpdateSubject.LargeGlyph")));
             this.barBtnUpdateSubject.Name = "barBtnUpdateSubject";
+            this.barBtnUpdateSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUpdateSubject_ItemClick);
             // 
             // barBtnPrintInforSubject
             // 
@@ -234,6 +238,7 @@
             this.barBtnPrintInforSubject.Id = 9;
             this.barBtnPrintInforSubject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintInforSubject.LargeGlyph")));
             this.barBtnPrintInforSubject.Name = "barBtnPrintInforSubject";
+            this.barBtnPrintInforSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintInforSubject_ItemClick);
             // 
             // barBtnFeesOwe
             // 
@@ -242,6 +247,7 @@
             this.barBtnFeesOwe.Id = 12;
             this.barBtnFeesOwe.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnFeesOwe.LargeGlyph")));
             this.barBtnFeesOwe.Name = "barBtnFeesOwe";
+            this.barBtnFeesOwe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnFeesOwe_ItemClick);
             // 
             // barBtnBan
             // 
@@ -250,6 +256,7 @@
             this.barBtnBan.Id = 14;
             this.barBtnBan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnBan.LargeGlyph")));
             this.barBtnBan.Name = "barBtnBan";
+            this.barBtnBan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnBan_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -294,6 +301,7 @@
             this.barBtnSearchFaculty.Id = 27;
             this.barBtnSearchFaculty.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSearchFaculty.LargeGlyph")));
             this.barBtnSearchFaculty.Name = "barBtnSearchFaculty";
+            this.barBtnSearchFaculty.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSearchFaculty_ItemClick);
             // 
             // barBtnPrintFaculty
             // 
@@ -302,6 +310,7 @@
             this.barBtnPrintFaculty.Id = 28;
             this.barBtnPrintFaculty.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintFaculty.LargeGlyph")));
             this.barBtnPrintFaculty.Name = "barBtnPrintFaculty";
+            this.barBtnPrintFaculty.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintFaculty_ItemClick);
             // 
             // barBtnAverageGrade
             // 
@@ -311,6 +320,7 @@
             this.barBtnAverageGrade.ItemAppearance.Disabled.Options.UseImage = true;
             this.barBtnAverageGrade.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnAverageGrade.LargeGlyph")));
             this.barBtnAverageGrade.Name = "barBtnAverageGrade";
+            this.barBtnAverageGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAverageGrade_ItemClick);
             // 
             // barButtonItem5
             // 
@@ -343,6 +353,7 @@
             this.barBtnSearchStu.Id = 37;
             this.barBtnSearchStu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSearchStu.LargeGlyph")));
             this.barBtnSearchStu.Name = "barBtnSearchStu";
+            this.barBtnSearchStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSearchStu_ItemClick);
             // 
             // barBtnSearchSubject
             // 
@@ -351,6 +362,7 @@
             this.barBtnSearchSubject.Id = 38;
             this.barBtnSearchSubject.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSearchSubject.LargeGlyph")));
             this.barBtnSearchSubject.Name = "barBtnSearchSubject";
+            this.barBtnSearchSubject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSearchSubject_ItemClick);
             // 
             // barBtnRankGrade
             // 
@@ -359,6 +371,7 @@
             this.barBtnRankGrade.Id = 39;
             this.barBtnRankGrade.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnRankGrade.LargeGlyph")));
             this.barBtnRankGrade.Name = "barBtnRankGrade";
+            this.barBtnRankGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnRankGrade_ItemClick);
             // 
             // barBtnSubjectChart
             // 
@@ -367,6 +380,7 @@
             this.barBtnSubjectChart.Id = 40;
             this.barBtnSubjectChart.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSubjectChart.LargeGlyph")));
             this.barBtnSubjectChart.Name = "barBtnSubjectChart";
+            this.barBtnSubjectChart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSubjectChart_ItemClick);
             // 
             // barBtnRank
             // 
@@ -375,6 +389,7 @@
             this.barBtnRank.Id = 41;
             this.barBtnRank.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnRank.LargeGlyph")));
             this.barBtnRank.Name = "barBtnRank";
+            this.barBtnRank.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnRank_ItemClick);
             // 
             // barBtnPrintGradeStu
             // 
@@ -383,6 +398,7 @@
             this.barBtnPrintGradeStu.Id = 42;
             this.barBtnPrintGradeStu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintGradeStu.LargeGlyph")));
             this.barBtnPrintGradeStu.Name = "barBtnPrintGradeStu";
+            this.barBtnPrintGradeStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintGradeStu_ItemClick);
             // 
             // barBtnPrintRecieStu
             // 
@@ -391,6 +407,7 @@
             this.barBtnPrintRecieStu.Id = 43;
             this.barBtnPrintRecieStu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintRecieStu.LargeGlyph")));
             this.barBtnPrintRecieStu.Name = "barBtnPrintRecieStu";
+            this.barBtnPrintRecieStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintRecieStu_ItemClick);
             // 
             // barBtnLearnRegister
             // 
@@ -399,6 +416,7 @@
             this.barBtnLearnRegister.Id = 44;
             this.barBtnLearnRegister.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnLearnRegister.LargeGlyph")));
             this.barBtnLearnRegister.Name = "barBtnLearnRegister";
+            this.barBtnLearnRegister.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLearnRegister_ItemClick);
             // 
             // barBtnInsertGrade
             // 
@@ -407,6 +425,7 @@
             this.barBtnInsertGrade.Id = 45;
             this.barBtnInsertGrade.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnInsertGrade.LargeGlyph")));
             this.barBtnInsertGrade.Name = "barBtnInsertGrade";
+            this.barBtnInsertGrade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnInsertGrade_ItemClick);
             // 
             // barBtnAddTeacher
             // 
@@ -424,6 +443,7 @@
             this.barBtnUpdateTeacher.Id = 47;
             this.barBtnUpdateTeacher.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnUpdateTeacher.LargeGlyph")));
             this.barBtnUpdateTeacher.Name = "barBtnUpdateTeacher";
+            this.barBtnUpdateTeacher.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUpdateTeacher_ItemClick);
             // 
             // barBtnPrintTeacher
             // 
@@ -432,6 +452,7 @@
             this.barBtnPrintTeacher.Id = 48;
             this.barBtnPrintTeacher.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnPrintTeacher.LargeGlyph")));
             this.barBtnPrintTeacher.Name = "barBtnPrintTeacher";
+            this.barBtnPrintTeacher.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPrintTeacher_ItemClick);
             // 
             // barBtnExcuteSalary
             // 
@@ -440,6 +461,7 @@
             this.barBtnExcuteSalary.Id = 49;
             this.barBtnExcuteSalary.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnExcuteSalary.LargeGlyph")));
             this.barBtnExcuteSalary.Name = "barBtnExcuteSalary";
+            this.barBtnExcuteSalary.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnExcuteSalary_ItemClick);
             // 
             // barBtnSearchTeacher
             // 
@@ -448,6 +470,16 @@
             this.barBtnSearchTeacher.Id = 50;
             this.barBtnSearchTeacher.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnSearchTeacher.LargeGlyph")));
             this.barBtnSearchTeacher.Name = "barBtnSearchTeacher";
+            this.barBtnSearchTeacher.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnSearchTeacher_ItemClick);
+            // 
+            // barBtnInforSystemUser
+            // 
+            this.barBtnInforSystemUser.Caption = "Thông tin\r\nngười dùng";
+            this.barBtnInforSystemUser.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnInforSystemUser.Glyph")));
+            this.barBtnInforSystemUser.Id = 51;
+            this.barBtnInforSystemUser.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnInforSystemUser.LargeGlyph")));
+            this.barBtnInforSystemUser.Name = "barBtnInforSystemUser";
+            this.barBtnInforSystemUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnInforSystemUser_ItemClick);
             // 
             // ribbonPageCategory1
             // 
@@ -476,13 +508,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barBtnPrintRecieStu);
             this.ribbonPageGroup1.ItemLinks.Add(this.barBtnSearchStu);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            toolTipItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            toolTipItem4.Appearance.Options.UseImage = true;
-            toolTipItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem4.Image")));
-            toolTipTitleItem4.Text = "Thêm";
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            this.ribbonPageGroup1.SuperTip = superToolTip4;
+            toolTipItem21.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            toolTipItem21.Appearance.Options.UseImage = true;
+            toolTipItem21.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem21.Image")));
+            toolTipTitleItem21.Text = "Thêm";
+            superToolTip21.Items.Add(toolTipItem21);
+            superToolTip21.Items.Add(toolTipTitleItem21);
+            this.ribbonPageGroup1.SuperTip = superToolTip21;
             this.ribbonPageGroup1.Text = "Sinh viên";
             // 
             // ribbonPage7
@@ -592,6 +624,12 @@
             this.ribbonPageGroup8});
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "Cài đặt";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.barBtnInforSystemUser);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Quản lý người dùng";
             // 
             // ribbonStatusBar
             // 
@@ -846,20 +884,6 @@
             this.barButtonItem10.Id = 10;
             this.barButtonItem10.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.LargeGlyph")));
             this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.barBtnInforSystemUser);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.Text = "Quản lý người dùng";
-            // 
-            // barBtnInforSystemUser
-            // 
-            this.barBtnInforSystemUser.Caption = "Thông tin\r\nngười dùng";
-            this.barBtnInforSystemUser.Glyph = ((System.Drawing.Image)(resources.GetObject("barBtnInforSystemUser.Glyph")));
-            this.barBtnInforSystemUser.Id = 51;
-            this.barBtnInforSystemUser.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barBtnInforSystemUser.LargeGlyph")));
-            this.barBtnInforSystemUser.Name = "barBtnInforSystemUser";
             // 
             // Main
             // 
