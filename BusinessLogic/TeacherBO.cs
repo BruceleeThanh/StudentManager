@@ -82,19 +82,14 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var obj = from m in db.Teachers
-						  where m.Tea_Code == aTeacher.Tea_Code
-						  select m;
-				foreach (var cur in obj)
-				{
-					cur.Tea_Name = aTeacher.Tea_Name;
-					cur.Tea_Address = aTeacher.Tea_Address;
-					cur.Tea_DateOfBirth = aTeacher.Tea_DateOfBirth;
-					cur.Tea_Ethnic = aTeacher.Tea_Ethnic;
-					cur.Tea_HomeTown = aTeacher.Tea_HomeTown;
-					cur.Tea_PhoneNumber = aTeacher.Tea_PhoneNumber;
-					cur.Tea_Religion = aTeacher.Tea_Religion;
-				}
+				var editObj = db.Teachers.Where(b=>b.Tea_Code == aTeacher.Tea_Code).FirstOrDefault();
+				editObj.Tea_Name = aTeacher.Tea_Name;
+				editObj.Tea_Address = aTeacher.Tea_Address;
+				editObj.Tea_DateOfBirth = aTeacher.Tea_DateOfBirth;
+				editObj.Tea_Ethnic = aTeacher.Tea_Ethnic;
+				editObj.Tea_HomeTown = aTeacher.Tea_HomeTown;
+				editObj.Tea_PhoneNumber = aTeacher.Tea_PhoneNumber;
+				editObj.Tea_Religion = aTeacher.Tea_Religion;
 				db.SubmitChanges();
 				return true;
 			}
@@ -105,17 +100,12 @@ namespace BusinessLogic
 			}
 		}
 		// Delete
-		public bool Delete(Teacher aTeacher)
+		public bool Delete(int teacherCode)
 		{
 			try
 			{
-				var obj = from m in db.Teachers
-						  where m.Tea_Code == aTeacher.Tea_Code
-						  select m;
-				foreach (var cur in obj)
-				{
-					db.Teachers.DeleteOnSubmit(cur);
-				}
+                var deleteObj = db.Teachers.Where(b => b.Tea_Code == teacherCode).FirstOrDefault();
+				db.Teachers.DeleteOnSubmit(deleteObj);
 				db.SubmitChanges();
 				return true;
 			}

@@ -54,7 +54,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.Payments.Where(b => b.Stu_Code == idStu).Where(b => b.Ter_Code == idTea).ToList<Payment>();
+				return db.Payments.Where(b => b.Stu_Code == idStu && b.Ter_Code == idTea).ToList<Payment>();
 			
 			}
 			catch (Exception ex)
@@ -84,16 +84,9 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var obj = from cur in db.Payments
-						  where cur.Stu_Code == aPayment.Stu_Code && cur.Ter_Code == aPayment.Ter_Code
-						  select cur;
-				foreach (var cur in obj)
-				{
-					cur.Stu_Code = aPayment.Stu_Code;
-					cur.Ter_Code = aPayment.Ter_Code;
-					cur.Pay_Money = aPayment.Pay_Money;
-					cur.Pay_Status = aPayment.Pay_Status;
-				}
+                var editObj = db.Payments.Where(b => b.Stu_Code == aPayment.Stu_Code && b.Ter_Code == aPayment.Ter_Code).FirstOrDefault();
+                editObj.Pay_Money = aPayment.Pay_Money;
+                editObj.Pay_Status = aPayment.Pay_Status;
 				db.SubmitChanges();
 				return true;
 			}
@@ -104,17 +97,12 @@ namespace BusinessLogic
 			}
 		}
 		// Delete
-		public bool Delete(Payment aPayment)
+		public bool Delete(string studentCode, int termCode)
 		{
 			try
 			{
-				var obj = from cur in db.Payments
-						  where cur.Stu_Code == aPayment.Stu_Code && cur.Ter_Code == aPayment.Ter_Code
-						  select cur;
-				foreach (var cur in obj)
-				{
-					db.Payments.DeleteOnSubmit(cur);
-				}
+                var deleteObj = db.Payments.Where(b => b.Stu_Code == studentCode && b.Ter_Code == termCode).FirstOrDefault();
+                db.Payments.DeleteOnSubmit(deleteObj);
 				db.SubmitChanges();
 				return true;
 			}

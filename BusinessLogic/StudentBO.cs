@@ -24,9 +24,9 @@ namespace BusinessLogic {
         }
 
         // Select all Student by Student Code
-        public List<Student> Select_ById (string id) {
+        public List<Student> Select_ById (string studentCode) {
             try {
-                return db.Students.Where(b => b.Stu_Code == id).ToList<Student>();
+                return db.Students.Where(b => b.Stu_Code == studentCode).ToList<Student>();
             }
             catch (Exception ex){
                 throw new Exception("StudentBO.Select_ById:" + ex.ToString());
@@ -34,9 +34,9 @@ namespace BusinessLogic {
         }
 
         // Select all Student by Student Name
-        public List<Student> Select_ByName (string Name) {
+        public List<Student> Select_ByName (string studentName) {
             try {
-                return db.Students.Where(b => b.Stu_Name == Name).ToList<Student>();
+                return db.Students.Where(b => b.Stu_Name == studentName).ToList<Student>();
             }
             catch (Exception ex){
                 throw new Exception("StudentBO.Select_ByName:" + ex.ToString());
@@ -44,9 +44,9 @@ namespace BusinessLogic {
         }
 
         // Select all Student by Religion
-        public List<Student> Select_ByReligion (string Religion) {
+        public List<Student> Select_ByReligion (string studentReligion) {
             try {
-                return db.Students.Where(b => b.Stu_Religion == Religion).ToList<Student>();
+                return db.Students.Where(b => b.Stu_Religion == studentReligion).ToList<Student>();
             }
             catch (Exception ex){
                 throw new Exception("StudentBO.Select_ByReligion:" + ex.ToString());
@@ -54,9 +54,9 @@ namespace BusinessLogic {
         }
 
         // Select all Student by Ethnic
-        public List<Student> Select_ByEthnic (string Ethnic) {
+        public List<Student> Select_ByEthnic (string studentEthnic) {
             try {
-                return db.Students.Where(b => b.Stu_Ethnic == Ethnic).ToList<Student>();
+                return db.Students.Where(b => b.Stu_Ethnic == studentEthnic).ToList<Student>();
             }
             catch (Exception ex) {
                 throw new Exception("StudentBO.Select_ByEthnic:" + ex.ToString());
@@ -79,16 +79,14 @@ namespace BusinessLogic {
         // Update Student
         public bool Update (Student aStudent) {
             try {
-                var editObj = db.Students.Where(b => b.Stu_Code == aStudent.Stu_Code).ToList<Student>();
-                foreach (Student temp in editObj) {
-                    temp.Stu_Name = aStudent.Stu_Name;
-                    temp.Stu_DateOfBirth = aStudent.Stu_DateOfBirth;
-                    temp.Stu_HomeTown = aStudent.Stu_HomeTown;
-                    temp.Stu_Address = aStudent.Stu_Address;
-                    temp.Stu_PhoneNumber = aStudent.Stu_PhoneNumber;
-                    temp.Stu_Religion = aStudent.Stu_Religion;
-                    temp.Stu_Ethnic = aStudent.Stu_Ethnic;
-                }
+                var editObj = db.Students.Where(b => b.Stu_Code == aStudent.Stu_Code).FirstOrDefault();
+                editObj.Stu_Name = aStudent.Stu_Name;
+                editObj.Stu_DateOfBirth = aStudent.Stu_DateOfBirth;
+                editObj.Stu_HomeTown = aStudent.Stu_HomeTown;
+                editObj.Stu_Address = aStudent.Stu_Address;
+                editObj.Stu_PhoneNumber = aStudent.Stu_PhoneNumber;
+                editObj.Stu_Religion = aStudent.Stu_Religion;
+                editObj.Stu_Ethnic = aStudent.Stu_Ethnic;
                 db.SubmitChanges();
                 return true;
             }
@@ -99,10 +97,10 @@ namespace BusinessLogic {
         }
 
         // Delete Student
-        public bool Delete (string Id) {
+        public bool Delete (string studentCode) {
             try {
-                var deleteObj = db.Students.Where(b => b.Stu_Code == Id).ToList<Student>();
-                db.Students.DeleteAllOnSubmit(deleteObj);
+                var deleteObj = db.Students.Where(b => b.Stu_Code == studentCode).FirstOrDefault();
+                db.Students.DeleteOnSubmit(deleteObj);
                 db.SubmitChanges();
                 return true;
             }

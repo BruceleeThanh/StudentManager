@@ -69,17 +69,10 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var obj = from m in db.StudentFaculties
-						  where m.Stu_Code == aStudentFaculty.Stu_Code && m.Fac_Code == aStudentFaculty.Fac_Code && m.Spe_Code == aStudentFaculty.Spe_Code
-						  select m;
-				foreach (var cur in obj)
-				{
-					cur.Stu_Code = aStudentFaculty.Stu_Code;
-					cur.Spe_Code = aStudentFaculty.Spe_Code;
-					cur.Fac_Code = aStudentFaculty.Fac_Code;
-				}
-				db.SubmitChanges();
-				return true;
+                var editObj = db.StudentFaculties.Where(b => b.Stu_Code == aStudentFaculty.Stu_Code && b.Fac_Code == aStudentFaculty.Fac_Code && b.Spe_Code == aStudentFaculty.Spe_Code).FirstOrDefault();
+                editObj.Sfa_Status = aStudentFaculty.Sfa_Status;
+                db.SubmitChanges();
+                return true;
 			}
 			catch (Exception ex)
 			{
@@ -88,17 +81,12 @@ namespace BusinessLogic
 			}
 		}
 		//Delete 
-		public bool Delete(StudentFaculty aStudentFaculty)
+		public bool Delete(string studentCode, int facultyCode, int speliciazationCode)
 		{
 			try
 			{
-				var obj = from m in db.StudentFaculties
-						  where m.Stu_Code == aStudentFaculty.Stu_Code && m.Fac_Code == aStudentFaculty.Fac_Code && m.Spe_Code == aStudentFaculty.Spe_Code
-						  select m;
-				foreach (var cur in obj)
-				{
-					db.StudentFaculties.DeleteOnSubmit(cur);
-				}
+                var deleteObj = db.StudentFaculties.Where(b => b.Stu_Code == studentCode && b.Fac_Code == facultyCode && b.Spe_Code == speliciazationCode).FirstOrDefault();
+                db.StudentFaculties.DeleteOnSubmit(deleteObj);
 				db.SubmitChanges();
 				return true;
 			}

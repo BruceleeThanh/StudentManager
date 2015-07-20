@@ -58,11 +58,9 @@ namespace BusinessLogic {
         // Update Specialization
         public bool Update (Specialization aSpecialization) {
             try {
-                var editObj = db.Specializations.Where(b => b.Spe_Code == aSpecialization.Spe_Code).ToList<Specialization>();
-                foreach (Specialization temp in editObj) {
-                    temp.Spe_Name = aSpecialization.Spe_Name;
-                    temp.Fac_Code = aSpecialization.Fac_Code;
-                }
+                var editObj = db.Specializations.Where(b => b.Spe_Code == aSpecialization.Spe_Code).FirstOrDefault();
+                editObj.Spe_Name = aSpecialization.Spe_Name;
+                editObj.Fac_Code = aSpecialization.Fac_Code;
                 db.SubmitChanges();
                 return true;
             }
@@ -73,10 +71,10 @@ namespace BusinessLogic {
         }
 
         // Delete Specialization
-        public bool Delete (Specialization aSpecialization) {
+        public bool Delete (int SpecializationCode) {
             try {
-                var deleteObj = db.Specializations.Where(b => b.Spe_Code == aSpecialization.Spe_Code).ToList<Specialization>();
-                db.Specializations.DeleteAllOnSubmit(deleteObj);
+                var deleteObj = db.Specializations.Where(b => b.Spe_Code == SpecializationCode).FirstOrDefault();
+                db.Specializations.DeleteOnSubmit(deleteObj);
                 db.SubmitChanges();
                 return true;
             }

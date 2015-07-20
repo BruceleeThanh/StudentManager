@@ -71,13 +71,8 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var obj = from m in db.Faculties
-							where m.Fac_Code == aFaculty.Fac_Code
-							select m;
-				foreach (var oFa in obj)
-				{
-					oFa.Fac_Name = aFaculty.Fac_Name;
-				}
+                var editObj = db.Faculties.Where(b => b.Fac_Code == aFaculty.Fac_Code).FirstOrDefault();
+                editObj.Fac_Name = aFaculty.Fac_Name;
 				db.SubmitChanges();
 				return true;
 			}
@@ -89,17 +84,12 @@ namespace BusinessLogic
 		}
 
 		// delete Faculty
-		public bool Delete(Faculty aFaculty)
+		public bool Delete(int facultyCode)
 		{
 			try
 			{
-				var obj = from m in db.Faculties
-						  where m.Fac_Code == aFaculty.Fac_Code
-						  select m;
-				foreach (var oFa in obj)
-				{
-					db.Faculties.DeleteOnSubmit(oFa);
-				}
+                var deleteObj = db.Faculties.Where(b => b.Fac_Code == facultyCode).FirstOrDefault();
+                db.Faculties.DeleteOnSubmit(deleteObj);
 				db.SubmitChanges();
 				return true;
 			}

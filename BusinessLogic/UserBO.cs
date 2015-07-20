@@ -51,32 +51,8 @@ namespace BusinessLogic
 			}
 		}
 		
-		// Insert
-		public bool Insert(string name, string password)
-		{
-			try
-			{
-                string passSHA1;
-                passSHA1 = ToSHA1(password);
-                var user = db.Users.Where(b => b.Use_Name == name).Where(b => b.Use_Password == passSHA1).ToList<User>();
-				if (user.Any())
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-				
-			}
-			catch (Exception ex)
-			{
-				
-				throw new Exception("UserBO.Login" + ex.ToString());
-			}
-		}
 		// Insert -- Register
-		public bool Register(User aUser)
+        public bool Insert (User aUser)
 		{
 			try
 			{
@@ -92,6 +68,39 @@ namespace BusinessLogic
 				throw new Exception("UserBO.Insert" + ex.ToString());
 			}
 		}
+
+        // Update
+        public bool Update (User aUser) {
+            try {
+                var editObj = db.Users.Where(b => b.Use_Name == aUser.Use_Name).FirstOrDefault();
+                editObj.Use_Password = ToSHA1(aUser.Use_Password);
+                editObj.Use_PersonName = aUser.Use_PersonName;
+                editObj.Use_DateOfBirth = aUser.Use_DateOfBirth;
+                editObj.Use_Email = aUser.Use_Email;
+                editObj.Use_PhoneNumber = aUser.Use_PhoneNumber;
+                editObj.Use_Status = aUser.Use_Status;
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+                throw new Exception("UserBO.Update" + ex.ToString());
+            }
+        }
+
+        // Delete
+        public bool Delete (string userName) {
+            try {
+                var deleteObj = db.Users.Where(b => b.Use_Name == userName).FirstOrDefault();
+                db.Users.DeleteOnSubmit(deleteObj);
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+                throw new Exception("UserBO.Delete" + ex.ToString());
+            }
+        }
 
         // SHA1
         private string ToSHA1 (string pass) {

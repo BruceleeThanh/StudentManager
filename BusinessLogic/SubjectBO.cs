@@ -88,16 +88,13 @@ namespace BusinessLogic {
         // Update Subject
         public bool Update (Subject aSubject) {
             try {
-                var editObj = db.Subjects.Where(b => b.Sub_Code == aSubject.Sub_Code).ToList<Subject>();
-                foreach (Subject temp in editObj) {
-                    temp.Sub_Code = aSubject.Sub_Code;
-                    temp.Sub_Name = aSubject.Sub_Name;
-                    temp.Sub_Credits = aSubject.Sub_Credits;
-                    temp.Sub_Type = aSubject.Sub_Type;
-                    temp.Sub_FacultyCode = aSubject.Sub_FacultyCode;
-                    temp.Sub_SpecializationCode = aSubject.Sub_SpecializationCode;
-                    temp.Sub_Coefficient = aSubject.Sub_Coefficient;
-                }
+                var editObj = db.Subjects.Where(b => b.Sub_Code == aSubject.Sub_Code).FirstOrDefault();
+                editObj.Sub_Name = aSubject.Sub_Name;
+                editObj.Sub_Credits = aSubject.Sub_Credits;
+                editObj.Sub_Type = aSubject.Sub_Type;
+                editObj.Sub_FacultyCode = aSubject.Sub_FacultyCode;
+                editObj.Sub_SpecializationCode = aSubject.Sub_SpecializationCode;
+                editObj.Sub_Coefficient = aSubject.Sub_Coefficient;
                 db.SubmitChanges();
                 return true;
             }
@@ -108,10 +105,10 @@ namespace BusinessLogic {
         }
 
         // Delete Subject
-        public bool Delete (string Id) {
+        public bool Delete (string subjectCode) {
             try {
-                var DeleteObj = db.Subjects.Where(b => b.Sub_Code == Id).ToList<Subject>();
-                db.Subjects.DeleteAllOnSubmit(DeleteObj);
+                var DeleteObj = db.Subjects.Where(b => b.Sub_Code == subjectCode).FirstOrDefault();
+                db.Subjects.DeleteOnSubmit(DeleteObj);
                 db.SubmitChanges();
                 return true;
             }

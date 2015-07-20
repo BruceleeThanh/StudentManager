@@ -55,7 +55,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.TeacherFaculties.Where(b => b.Fac_Code == idFa).Where(b=>b.Tea_Code == idTea).OrderByDescending(b => b.Tea_Code).ToList<TeacherFaculty>();
+				return db.TeacherFaculties.Where(b => b.Fac_Code == idFa && b.Tea_Code == idTea).OrderByDescending(b => b.Tea_Code).ToList<TeacherFaculty>();
 			}
 			catch (Exception ex)
 			{
@@ -84,15 +84,8 @@ namespace BusinessLogic
 		{
 			try
 			{
-				var cur = from m in db.TeacherFaculties
-						  where m.Tea_Code == aTeacherFaculty.Tea_Code && m.Fac_Code == aTeacherFaculty.Fac_Code
-						  select m;
-				foreach (var temp in cur)
-				{
-					temp.Fac_Code = aTeacherFaculty.Fac_Code;
-					temp.Tea_Code = aTeacherFaculty.Tea_Code;
-					temp.Tfa_Salary = aTeacherFaculty.Tfa_Salary;
-				}
+                var editObj = db.TeacherFaculties.Where(b => b.Tea_Code == aTeacherFaculty.Tea_Code && b.Fac_Code == aTeacherFaculty.Fac_Code).FirstOrDefault();
+				editObj.Tfa_Salary = aTeacherFaculty.Tfa_Salary;
 				db.SubmitChanges();
 				return true;
 			}
@@ -104,17 +97,12 @@ namespace BusinessLogic
 		}
 
 		// Delete
-		public bool Delete(TeacherFaculty aTeacherFaculty)
+		public bool Delete(int teacherCode, int facultyCode)
 		{
 			try
 			{
-				var cur = from m in db.TeacherFaculties
-						  where m.Tea_Code == aTeacherFaculty.Tea_Code && m.Fac_Code == aTeacherFaculty.Fac_Code
-						  select m;
-				foreach (var temp in cur)
-				{
-					db.TeacherFaculties.DeleteOnSubmit(temp);
-				}
+                var deleteObj = db.TeacherFaculties.Where(b => b.Tea_Code == teacherCode && b.Fac_Code == facultyCode).FirstOrDefault();
+                db.TeacherFaculties.DeleteOnSubmit(deleteObj);
 				db.SubmitChanges();
 				return true;
 			}

@@ -68,16 +68,11 @@ namespace BusinessLogic {
         // Update Course
         public bool Update (Course aCourse) {
             try {
-                var editObj = db.Courses.Where(b => b.Stu_Code == aCourse.Stu_Code).Where(b => b.Sub_Code == aCourse.Sub_Code).Where(b => b.Ter_Code == aCourse.Ter_Code).ToList<Course>();
-                foreach (Course temp in editObj) {
-                    temp.Stu_Code = aCourse.Stu_Code;
-                    temp.Sub_Code = aCourse.Sub_Code;
-                    temp.Ter_Code = aCourse.Ter_Code;
-                    temp.Cou_Process = aCourse.Cou_Process;
-                    temp.Cou_Exam = aCourse.Cou_Exam;
-                    temp.Cou_Score = aCourse.Cou_Score;
-                    temp.Cou_Status = aCourse.Cou_Status;
-                }
+                var editObj = db.Courses.Where(b => b.Stu_Code == aCourse.Stu_Code && b.Sub_Code == aCourse.Sub_Code && b.Ter_Code == aCourse.Ter_Code).FirstOrDefault();
+                editObj.Cou_Process = aCourse.Cou_Process;
+                editObj.Cou_Exam = aCourse.Cou_Exam;
+                editObj.Cou_Score = aCourse.Cou_Score;
+                editObj.Cou_Status = aCourse.Cou_Status;
                 db.SubmitChanges();
                 return true;
             }
@@ -90,8 +85,8 @@ namespace BusinessLogic {
         // Delete Course
         public bool Delete (string StudentCode, string SubjectCode, int TermCode) {
             try {
-                var deleteObj = db.Courses.Where(b => b.Stu_Code == StudentCode).Where(b => b.Sub_Code == SubjectCode).Where(b => b.Ter_Code == TermCode).ToList<Course>();
-                db.Courses.DeleteAllOnSubmit(deleteObj);
+                var deleteObj = db.Courses.Where(b => b.Stu_Code == StudentCode && b.Sub_Code == SubjectCode && b.Ter_Code == TermCode).FirstOrDefault();
+                db.Courses.DeleteOnSubmit(deleteObj);
                 db.SubmitChanges();
                 return true;
             }

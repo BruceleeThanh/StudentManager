@@ -78,13 +78,9 @@ namespace BusinessLogic {
         //Update TimeTableCourse
         public bool Update (TimeTableCourse aTimeTableCourse) {
             try {
-                var editObj = db.TimeTableCourses.Where(b => b.Ter_Code == aTimeTableCourse.Ter_Code).Where(b => b.Sub_Code == aTimeTableCourse.Sub_Code).ToList<TimeTableCourse>();
-                foreach (var temp in editObj) {
-                    temp.Ter_Code = aTimeTableCourse.Ter_Code;
-                    temp.Sub_Code = aTimeTableCourse.Sub_Code;
-                    temp.Tea_Code = aTimeTableCourse.Tea_Code;
-                    temp.Ttc_Room = aTimeTableCourse.Ttc_Room;
-                }
+                var editObj = db.TimeTableCourses.Where(b => b.Ter_Code == aTimeTableCourse.Ter_Code).Where(b => b.Sub_Code == aTimeTableCourse.Sub_Code).FirstOrDefault();
+                editObj.Tea_Code = aTimeTableCourse.Tea_Code;
+                editObj.Ttc_Room = aTimeTableCourse.Ttc_Room;
                 db.SubmitChanges();
                 return true;
             }
@@ -95,10 +91,10 @@ namespace BusinessLogic {
         }
 
         //Delete TimeTableCourse
-        public bool Delete (TimeTableCourse aTimeTableCourse) {
+        public bool Delete (int termCode, string subjectCode) {
             try {
-                var deleteObj = db.TimeTableCourses.Where(b => b.Ter_Code == aTimeTableCourse.Ter_Code).Where(b => b.Sub_Code == aTimeTableCourse.Sub_Code).ToList<TimeTableCourse>();
-                db.TimeTableCourses.DeleteAllOnSubmit(deleteObj);
+                var deleteObj = db.TimeTableCourses.Where(b => b.Ter_Code == termCode).Where(b => b.Sub_Code == subjectCode).FirstOrDefault();
+                db.TimeTableCourses.DeleteOnSubmit(deleteObj);
                 db.SubmitChanges();
                 return true;
             }

@@ -96,16 +96,11 @@ namespace BusinessLogic {
         public bool Updata( Term aTerm ) {
 
             try {
-                var obj = from m in db.Terms
-                          where m.Ter_Code == aTerm.Ter_Code
-                          select m;
-                foreach ( var cur in obj ) {
-                    cur.Ter_Name = aTerm.Ter_Name;
-                    cur.Ter_Group = aTerm.Ter_Group;
-                    cur.Ter_YearStart = aTerm.Ter_YearStart;
-                    cur.Ter_YearEnd = aTerm.Ter_YearEnd;
-                }
-
+                var editObj = db.Terms.Where(b=>b.Ter_Code == aTerm.Ter_Code).FirstOrDefault();
+                editObj.Ter_Name = aTerm.Ter_Name;
+                editObj.Ter_Group = aTerm.Ter_Group;
+                editObj.Ter_YearStart = aTerm.Ter_YearStart;
+                editObj.Ter_YearEnd = aTerm.Ter_YearEnd;
                 db.SubmitChanges ( );
                 return true;
             }
@@ -118,19 +113,14 @@ namespace BusinessLogic {
 
         // Delete
 
-        public bool Delete( Term aTerm ) {
+        public bool Delete( int termCode ) {
 
             try {
-                var obj = from m in db.Terms
-                          where m.Ter_Code == aTerm.Ter_Code
-                          select m;
-                foreach ( var cur in obj ) {
-                    db.Terms.DeleteOnSubmit ( cur );
-                }
+                var deleteObj = db.Terms.Where(b => b.Ter_Code == termCode).FirstOrDefault();
+                db.Terms.DeleteOnSubmit ( deleteObj );
                 db.SubmitChanges ( );
                 return true;
             }
-
             catch ( Exception ex ) {
                 return false;
                 throw new Exception ( "TermOB_Delete" + ex.ToString ( ) );
