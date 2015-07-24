@@ -21,6 +21,7 @@ namespace SchoolManager.Entity
 		{
 			this.TeacherCode = aTeacher.Tea_Code;
 			this.TeacherName = aTeacher.Tea_Name;
+			this.TeacherHomeTown = aTeacher.Tea_HomeTown;
 			this.TeacherOfBirth = aTeacher.Tea_DateOfBirth;
 			this.TeacherAddress = aTeacher.Tea_Address;
 			this.TeacherPhoneNumber = aTeacher.Tea_PhoneNumber;

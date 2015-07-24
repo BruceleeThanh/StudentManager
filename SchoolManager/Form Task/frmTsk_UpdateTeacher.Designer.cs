@@ -28,8 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTsk_UpdateTeacher));
 			this.lbCode = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -48,10 +46,6 @@
 			this.dateArea = new System.Windows.Forms.DateTimePicker();
 			this.btnDone = new DevExpress.XtraEditors.SimpleButton();
 			this.gridViewDataTeacher = new DevExpress.XtraGrid.Views.Grid.GridView();
-			this.gridDataTeacher = new DevExpress.XtraGrid.GridControl();
-			this.schoolsManagerDataSet1 = new SchoolManager.SchoolsManagerDataSet();
-			this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.teacherTableAdapter = new SchoolManager.SchoolsManagerDataSetTableAdapters.TeacherTableAdapter();
 			this.colTea_Code = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colTea_Name = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colTea_DateOfBirth = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,10 +54,9 @@
 			this.colTea_PhoneNumber = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colTea_Religion = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.colTea_Ethnic = new DevExpress.XtraGrid.Columns.GridColumn();
+			this.gridDataTeacher = new DevExpress.XtraGrid.GridControl();
 			((System.ComponentModel.ISupportInitialize)(this.gridViewDataTeacher)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridDataTeacher)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.schoolsManagerDataSet1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lbCode
@@ -214,7 +207,6 @@
 			// 
 			// btnDone
 			// 
-			this.btnDone.Image = ((System.Drawing.Image)(resources.GetObject("btnDone.Image")));
 			this.btnDone.Location = new System.Drawing.Point(627, 192);
 			this.btnDone.Name = "btnDone";
 			this.btnDone.Size = new System.Drawing.Size(89, 23);
@@ -235,38 +227,14 @@
             this.colTea_Ethnic});
 			this.gridViewDataTeacher.GridControl = this.gridDataTeacher;
 			this.gridViewDataTeacher.Name = "gridViewDataTeacher";
-			// 
-			// gridDataTeacher
-			// 
-			this.gridDataTeacher.DataSource = this.teacherBindingSource;
-			this.gridDataTeacher.Location = new System.Drawing.Point(-2, 239);
-			this.gridDataTeacher.MainView = this.gridViewDataTeacher;
-			this.gridDataTeacher.Name = "gridDataTeacher";
-			this.gridDataTeacher.Size = new System.Drawing.Size(798, 291);
-			this.gridDataTeacher.TabIndex = 21;
-			this.gridDataTeacher.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewDataTeacher});
-			this.gridDataTeacher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Click_TextArea);
-			// 
-			// schoolsManagerDataSet1
-			// 
-			this.schoolsManagerDataSet1.DataSetName = "SchoolsManagerDataSet";
-			this.schoolsManagerDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// teacherBindingSource
-			// 
-			this.teacherBindingSource.DataMember = "Teacher";
-			this.teacherBindingSource.DataSource = this.schoolsManagerDataSet1;
-			// 
-			// teacherTableAdapter
-			// 
-			this.teacherTableAdapter.ClearBeforeFill = true;
+			this.gridViewDataTeacher.OptionsView.ShowGroupPanel = false;
 			// 
 			// colTea_Code
 			// 
 			this.colTea_Code.Caption = "Mã Giáo Viên";
-			this.colTea_Code.FieldName = "Tea_Code";
+			this.colTea_Code.FieldName = "TeacherCode";
 			this.colTea_Code.Name = "colTea_Code";
+			this.colTea_Code.OptionsColumn.AllowEdit = false;
 			this.colTea_Code.OptionsColumn.ReadOnly = true;
 			this.colTea_Code.Visible = true;
 			this.colTea_Code.VisibleIndex = 0;
@@ -274,58 +242,83 @@
 			// colTea_Name
 			// 
 			this.colTea_Name.Caption = "Tên Giáo Viên";
-			this.colTea_Name.FieldName = "Tea_Name";
+			this.colTea_Name.FieldName = "TeacherName";
 			this.colTea_Name.Name = "colTea_Name";
+			this.colTea_Name.OptionsColumn.AllowEdit = false;
+			this.colTea_Name.OptionsColumn.ReadOnly = true;
 			this.colTea_Name.Visible = true;
 			this.colTea_Name.VisibleIndex = 1;
 			// 
 			// colTea_DateOfBirth
 			// 
 			this.colTea_DateOfBirth.Caption = "Ngày Sinh";
-			this.colTea_DateOfBirth.FieldName = "Tea_DateOfBirth";
+			this.colTea_DateOfBirth.FieldName = "TeacherOfBirth";
 			this.colTea_DateOfBirth.Name = "colTea_DateOfBirth";
+			this.colTea_DateOfBirth.OptionsColumn.AllowEdit = false;
+			this.colTea_DateOfBirth.OptionsColumn.ReadOnly = true;
 			this.colTea_DateOfBirth.Visible = true;
 			this.colTea_DateOfBirth.VisibleIndex = 2;
 			// 
 			// colTea_HomeTown
 			// 
 			this.colTea_HomeTown.Caption = "Nơi Sinh";
-			this.colTea_HomeTown.FieldName = "Tea_HomeTown";
+			this.colTea_HomeTown.FieldName = "TeacherHomeTown";
 			this.colTea_HomeTown.Name = "colTea_HomeTown";
+			this.colTea_HomeTown.OptionsColumn.AllowEdit = false;
+			this.colTea_HomeTown.OptionsColumn.ReadOnly = true;
 			this.colTea_HomeTown.Visible = true;
 			this.colTea_HomeTown.VisibleIndex = 3;
 			// 
 			// colTea_Address
 			// 
 			this.colTea_Address.Caption = "Địa Chỉ";
-			this.colTea_Address.FieldName = "Tea_Address";
+			this.colTea_Address.FieldName = "TeacherAddress";
 			this.colTea_Address.Name = "colTea_Address";
+			this.colTea_Address.OptionsColumn.AllowEdit = false;
+			this.colTea_Address.OptionsColumn.ReadOnly = true;
 			this.colTea_Address.Visible = true;
 			this.colTea_Address.VisibleIndex = 4;
 			// 
 			// colTea_PhoneNumber
 			// 
 			this.colTea_PhoneNumber.Caption = "Số Điện Thoại";
-			this.colTea_PhoneNumber.FieldName = "Tea_PhoneNumber";
+			this.colTea_PhoneNumber.FieldName = "TeacherPhoneNumber";
 			this.colTea_PhoneNumber.Name = "colTea_PhoneNumber";
+			this.colTea_PhoneNumber.OptionsColumn.AllowEdit = false;
+			this.colTea_PhoneNumber.OptionsColumn.ReadOnly = true;
 			this.colTea_PhoneNumber.Visible = true;
 			this.colTea_PhoneNumber.VisibleIndex = 5;
 			// 
 			// colTea_Religion
 			// 
 			this.colTea_Religion.Caption = "Tôn Giáo";
-			this.colTea_Religion.FieldName = "Tea_Religion";
+			this.colTea_Religion.FieldName = "TeacherReligion";
 			this.colTea_Religion.Name = "colTea_Religion";
+			this.colTea_Religion.OptionsColumn.AllowEdit = false;
+			this.colTea_Religion.OptionsColumn.ReadOnly = true;
 			this.colTea_Religion.Visible = true;
 			this.colTea_Religion.VisibleIndex = 6;
 			// 
 			// colTea_Ethnic
 			// 
 			this.colTea_Ethnic.Caption = "Dân Tộc";
-			this.colTea_Ethnic.FieldName = "Tea_Ethnic";
+			this.colTea_Ethnic.FieldName = "TeacherEthnic";
 			this.colTea_Ethnic.Name = "colTea_Ethnic";
+			this.colTea_Ethnic.OptionsColumn.AllowEdit = false;
+			this.colTea_Ethnic.OptionsColumn.ReadOnly = true;
 			this.colTea_Ethnic.Visible = true;
 			this.colTea_Ethnic.VisibleIndex = 7;
+			// 
+			// gridDataTeacher
+			// 
+			this.gridDataTeacher.Location = new System.Drawing.Point(-2, 239);
+			this.gridDataTeacher.MainView = this.gridViewDataTeacher;
+			this.gridDataTeacher.Name = "gridDataTeacher";
+			this.gridDataTeacher.Size = new System.Drawing.Size(798, 291);
+			this.gridDataTeacher.TabIndex = 21;
+		
+			this.gridDataTeacher.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewDataTeacher});
 			// 
 			// frmTsk_UpdateTeacher
 			// 
@@ -352,11 +345,11 @@
 			this.Controls.Add(this.lbCode);
 			this.Name = "frmTsk_UpdateTeacher";
 			this.Text = "Sửa Giáo Viên";
-			this.Load += new System.EventHandler(this.frmTsk_UpdateTeacher_Load_1);
+			this.Load += new System.EventHandler(this.frmTsk_UpadteTeacher_Load);
+			gridViewDataTeacher.OptionsBehavior.Editable = false;
+			gridViewDataTeacher.RowCellClick += gridViewDataTeacher_RowCellClick;
 			((System.ComponentModel.ISupportInitialize)(this.gridViewDataTeacher)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.gridDataTeacher)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.schoolsManagerDataSet1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -382,11 +375,7 @@
 		private System.Windows.Forms.DateTimePicker dateArea;
 		private DevExpress.XtraEditors.SimpleButton btnDone;
 		private DevExpress.XtraGrid.Views.Grid.GridView gridViewDataTeacher;
-		private DevExpress.XtraGrid.GridControl gridDataTeacher;
-		private SchoolsManagerDataSet schoolsManagerDataSet;
-		private SchoolsManagerDataSet schoolsManagerDataSet1;
-		private System.Windows.Forms.BindingSource teacherBindingSource;
-		private SchoolsManagerDataSetTableAdapters.TeacherTableAdapter teacherTableAdapter;
+		
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_Code;
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_Name;
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_DateOfBirth;
@@ -395,5 +384,6 @@
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_PhoneNumber;
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_Religion;
 		private DevExpress.XtraGrid.Columns.GridColumn colTea_Ethnic;
+		private DevExpress.XtraGrid.GridControl gridDataTeacher;
 	}
 }
