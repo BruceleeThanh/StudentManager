@@ -37,11 +37,11 @@ namespace SchoolManager.Form_Task
 				aTeacher.Tea_PhoneNumber = txtPhone.Text;
 				aTeacher.Tea_HomeTown = txtHometown.Text;
 				// Check phone number and name to don't repeat record
-				string checkphone = aTeacherBO.Select_ByPhoneNumber(txtPhone.Text).ToString();
-				string checkname = aTeacherBO.Select_ByName(txtName.Text).ToString();
+				Teacher checkphone = aTeacherBO.Select_ByPhoneNumber(txtPhone.Text).FirstOrDefault();
+				Teacher checkname = aTeacherBO.Select_ByName(txtName.Text).FirstOrDefault();
 				if (txtName.Text != "" && txtPhone.Text != "" && txtAddress.Text != "" && txtHometown.Text != "")
 				{
-					if (txtPhone.Text == checkphone && txtName.Text == checkname)
+					if (checkphone == null || checkname == null)
 					{
 						if (aTeacherBO.Insert(aTeacher))
 						{

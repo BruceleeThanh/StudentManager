@@ -264,7 +264,7 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Name = "frmTsk_AddTeacher";
-			this.Text = "frmTsk_AddTeacher";
+			this.Text = "Thêm Giáo Viên";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
