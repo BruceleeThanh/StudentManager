@@ -15,7 +15,7 @@ namespace BusinessLogic {
         // Select all Subject
         public List<Subject> Select_All () {
             try {
-                return db.Subjects.OrderByDescending(b => b.Sub_Code).ToList<Subject>();
+                return db.Subjects.OrderBy(b => b.Sub_Code).ToList<Subject>();
             }
             catch (Exception ex) {
                 throw new Exception("SubjectBO.Select_All:" + ex.ToString());
@@ -43,7 +43,7 @@ namespace BusinessLogic {
         }
 
         // Select all Subject by Type
-        public List<Subject> Select_ByType (bool Type) {
+        public List<Subject> Select_ByType (int Type) {
             try {
                 return db.Subjects.Where(b => b.Sub_Type == Type).ToList<Subject>();
             }

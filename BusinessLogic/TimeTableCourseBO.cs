@@ -15,7 +15,7 @@ namespace BusinessLogic {
         //Select All
         public List<TimeTableCourse> Select_All () {
             try {
-                return db.TimeTableCourses.OrderByDescending(b => b.Ter_Code).ToList<TimeTableCourse>();
+                return db.TimeTableCourses.OrderBy(b => b.Ter_Code).ToList<TimeTableCourse>();
             }
             catch (Exception ex) {
                 throw new Exception("TimeTableCourseBO.Select_All" + ex.ToString());

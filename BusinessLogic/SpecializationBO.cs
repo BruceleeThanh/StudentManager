@@ -15,7 +15,7 @@ namespace BusinessLogic {
         // Select All
         public List<Specialization> Select_All () {
             try {
-                return db.Specializations.OrderByDescending(b => b.Spe_Code).ToList<Specialization>();
+                return db.Specializations.OrderBy(b => b.Spe_Code).ToList<Specialization>();
             }
             catch (Exception ex) {
                 throw new Exception("SpecializationBO.Select_All" + ex.ToString());

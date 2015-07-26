@@ -16,7 +16,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.Payments.OrderByDescending(b => b.Stu_Code).OrderByDescending(b => b.Ter_Code).ToList<Payment>();
+				return db.Payments.OrderBy(b => b.Stu_Code).OrderBy(b => b.Ter_Code).ToList<Payment>();
 			}
 			catch (Exception ex)
 			{

@@ -10,11 +10,12 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DataAccess;
 using BusinessLogic;
-using SchoolManager.Form_Main;
+using SchoolManager.Form_Task;
 
 namespace SchoolManager.Design {
     public partial class Login : DevExpress.XtraEditors.XtraForm {
 		private DbDataContext db = new DbDataContext();
+		
         public Login () {
             InitializeComponent();
         }
@@ -25,7 +26,7 @@ namespace SchoolManager.Design {
 			UserBO user = new UserBO();
 			string username = txtUserName.Text;
 			string password = txtPassword.Text;
-			if (user.Insert(username, password) == true)
+			if (user.Login(username, password) == true)
 			{
 				Main aMain = new Main();
 				aMain.Show();
@@ -42,7 +43,7 @@ namespace SchoolManager.Design {
 				UserBO user = new UserBO();
 				string username = txtUserName.Text;
 				string password = txtPassword.Text;
-				if (user.Insert(username, password) == true)
+				if (user.Login(username, password) == true)
 				{
 					Main aMain = new Main();
 					aMain.Show();
@@ -55,7 +56,5 @@ namespace SchoolManager.Design {
 				
             }
         }
-		
-      
     }
 }

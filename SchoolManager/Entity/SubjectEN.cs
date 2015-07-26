@@ -14,7 +14,7 @@ namespace SchoolManager.Entity {
 
         public int SubjectCredits { get; set; }
 
-        public bool SubjectType { get; set; }
+        public int SubjectType { get; set; }
 
         public int? SubjectFacultyCode { get; set; }
 

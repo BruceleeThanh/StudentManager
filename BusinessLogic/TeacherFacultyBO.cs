@@ -16,7 +16,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.TeacherFaculties.OrderByDescending(b => b.Tea_Code).ToList<TeacherFaculty>();
+				return db.TeacherFaculties.OrderBy(b => b.Tea_Code).ToList<TeacherFaculty>();
 			}
 			catch (Exception ex)
 			{
@@ -55,7 +55,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.TeacherFaculties.Where(b => b.Fac_Code == idFa && b.Tea_Code == idTea).OrderByDescending(b => b.Tea_Code).ToList<TeacherFaculty>();
+				return db.TeacherFaculties.Where(b => b.Fac_Code == idFa && b.Tea_Code == idTea).OrderBy(b => b.Tea_Code).ToList<TeacherFaculty>();
 			}
 			catch (Exception ex)
 			{

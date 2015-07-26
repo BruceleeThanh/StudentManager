@@ -30,9 +30,6 @@ namespace DataAccess
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertStudent(Student instance);
-    partial void UpdateStudent(Student instance);
-    partial void DeleteStudent(Student instance);
     partial void InsertCourse(Course instance);
     partial void UpdateCourse(Course instance);
     partial void DeleteCourse(Course instance);
@@ -45,27 +42,30 @@ namespace DataAccess
     partial void InsertSpecialization(Specialization instance);
     partial void UpdateSpecialization(Specialization instance);
     partial void DeleteSpecialization(Specialization instance);
-    partial void InsertStudentFaculty(StudentFaculty instance);
-    partial void UpdateStudentFaculty(StudentFaculty instance);
-    partial void DeleteStudentFaculty(StudentFaculty instance);
-    partial void InsertSubject(Subject instance);
-    partial void UpdateSubject(Subject instance);
-    partial void DeleteSubject(Subject instance);
+    partial void InsertStudent(Student instance);
+    partial void UpdateStudent(Student instance);
+    partial void DeleteStudent(Student instance);
     partial void InsertTeacher(Teacher instance);
     partial void UpdateTeacher(Teacher instance);
     partial void DeleteTeacher(Teacher instance);
     partial void InsertTeacherFaculty(TeacherFaculty instance);
     partial void UpdateTeacherFaculty(TeacherFaculty instance);
     partial void DeleteTeacherFaculty(TeacherFaculty instance);
-    partial void InsertTerm(Term instance);
-    partial void UpdateTerm(Term instance);
-    partial void DeleteTerm(Term instance);
     partial void InsertTimeTableCourse(TimeTableCourse instance);
     partial void UpdateTimeTableCourse(TimeTableCourse instance);
     partial void DeleteTimeTableCourse(TimeTableCourse instance);
+    partial void InsertTerm(Term instance);
+    partial void UpdateTerm(Term instance);
+    partial void DeleteTerm(Term instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertStudentFaculty(StudentFaculty instance);
+    partial void UpdateStudentFaculty(StudentFaculty instance);
+    partial void DeleteStudentFaculty(StudentFaculty instance);
+    partial void InsertSubject(Subject instance);
+    partial void UpdateSubject(Subject instance);
+    partial void DeleteSubject(Subject instance);
     #endregion
 		
 		public DbDataContext() : 
@@ -96,14 +96,6 @@ namespace DataAccess
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Student> Students
-		{
-			get
-			{
-				return this.GetTable<Student>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Course> Courses
@@ -138,19 +130,11 @@ namespace DataAccess
 			}
 		}
 		
-		public System.Data.Linq.Table<StudentFaculty> StudentFaculties
+		public System.Data.Linq.Table<Student> Students
 		{
 			get
 			{
-				return this.GetTable<StudentFaculty>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Subject> Subjects
-		{
-			get
-			{
-				return this.GetTable<Subject>();
+				return this.GetTable<Student>();
 			}
 		}
 		
@@ -170,19 +154,19 @@ namespace DataAccess
 			}
 		}
 		
-		public System.Data.Linq.Table<Term> Terms
-		{
-			get
-			{
-				return this.GetTable<Term>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TimeTableCourse> TimeTableCourses
 		{
 			get
 			{
 				return this.GetTable<TimeTableCourse>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Term> Terms
+		{
+			get
+			{
+				return this.GetTable<Term>();
 			}
 		}
 		
@@ -193,258 +177,20 @@ namespace DataAccess
 				return this.GetTable<User>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Student")]
-	public partial class Student : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Stu_Code;
-		
-		private string _Stu_Name;
-		
-		private System.DateTime _Stu_DateOfBirth;
-		
-		private string _Stu_HomeTown;
-		
-		private string _Stu_Address;
-		
-		private string _Stu_PhoneNumber;
-		
-		private string _Stu_Religion;
-		
-		private string _Stu_Ethnic;
-		
-		private System.Nullable<int> _Stu_StudyStatus;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnStu_CodeChanging(string value);
-    partial void OnStu_CodeChanged();
-    partial void OnStu_NameChanging(string value);
-    partial void OnStu_NameChanged();
-    partial void OnStu_DateOfBirthChanging(System.DateTime value);
-    partial void OnStu_DateOfBirthChanged();
-    partial void OnStu_HomeTownChanging(string value);
-    partial void OnStu_HomeTownChanged();
-    partial void OnStu_AddressChanging(string value);
-    partial void OnStu_AddressChanged();
-    partial void OnStu_PhoneNumberChanging(string value);
-    partial void OnStu_PhoneNumberChanged();
-    partial void OnStu_ReligionChanging(string value);
-    partial void OnStu_ReligionChanged();
-    partial void OnStu_EthnicChanging(string value);
-    partial void OnStu_EthnicChanged();
-    partial void OnStu_StudyStatusChanging(System.Nullable<int> value);
-    partial void OnStu_StudyStatusChanged();
-    #endregion
-		
-		public Student()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Stu_Code
+		public System.Data.Linq.Table<StudentFaculty> StudentFaculties
 		{
 			get
 			{
-				return this._Stu_Code;
-			}
-			set
-			{
-				if ((this._Stu_Code != value))
-				{
-					this.OnStu_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Code = value;
-					this.SendPropertyChanged("Stu_Code");
-					this.OnStu_CodeChanged();
-				}
+				return this.GetTable<StudentFaculty>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Stu_Name
+		public System.Data.Linq.Table<Subject> Subjects
 		{
 			get
 			{
-				return this._Stu_Name;
-			}
-			set
-			{
-				if ((this._Stu_Name != value))
-				{
-					this.OnStu_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Name = value;
-					this.SendPropertyChanged("Stu_Name");
-					this.OnStu_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_DateOfBirth", DbType="DateTime NOT NULL")]
-		public System.DateTime Stu_DateOfBirth
-		{
-			get
-			{
-				return this._Stu_DateOfBirth;
-			}
-			set
-			{
-				if ((this._Stu_DateOfBirth != value))
-				{
-					this.OnStu_DateOfBirthChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_DateOfBirth = value;
-					this.SendPropertyChanged("Stu_DateOfBirth");
-					this.OnStu_DateOfBirthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_HomeTown", DbType="NVarChar(MAX)")]
-		public string Stu_HomeTown
-		{
-			get
-			{
-				return this._Stu_HomeTown;
-			}
-			set
-			{
-				if ((this._Stu_HomeTown != value))
-				{
-					this.OnStu_HomeTownChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_HomeTown = value;
-					this.SendPropertyChanged("Stu_HomeTown");
-					this.OnStu_HomeTownChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Address", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Stu_Address
-		{
-			get
-			{
-				return this._Stu_Address;
-			}
-			set
-			{
-				if ((this._Stu_Address != value))
-				{
-					this.OnStu_AddressChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Address = value;
-					this.SendPropertyChanged("Stu_Address");
-					this.OnStu_AddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_PhoneNumber", DbType="NVarChar(30)")]
-		public string Stu_PhoneNumber
-		{
-			get
-			{
-				return this._Stu_PhoneNumber;
-			}
-			set
-			{
-				if ((this._Stu_PhoneNumber != value))
-				{
-					this.OnStu_PhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_PhoneNumber = value;
-					this.SendPropertyChanged("Stu_PhoneNumber");
-					this.OnStu_PhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Religion", DbType="NVarChar(50)")]
-		public string Stu_Religion
-		{
-			get
-			{
-				return this._Stu_Religion;
-			}
-			set
-			{
-				if ((this._Stu_Religion != value))
-				{
-					this.OnStu_ReligionChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Religion = value;
-					this.SendPropertyChanged("Stu_Religion");
-					this.OnStu_ReligionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Ethnic", DbType="NVarChar(50)")]
-		public string Stu_Ethnic
-		{
-			get
-			{
-				return this._Stu_Ethnic;
-			}
-			set
-			{
-				if ((this._Stu_Ethnic != value))
-				{
-					this.OnStu_EthnicChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Ethnic = value;
-					this.SendPropertyChanged("Stu_Ethnic");
-					this.OnStu_EthnicChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_StudyStatus", DbType="Int")]
-		public System.Nullable<int> Stu_StudyStatus
-		{
-			get
-			{
-				return this._Stu_StudyStatus;
-			}
-			set
-			{
-				if ((this._Stu_StudyStatus != value))
-				{
-					this.OnStu_StudyStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_StudyStatus = value;
-					this.SendPropertyChanged("Stu_StudyStatus");
-					this.OnStu_StudyStatusChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Subject>();
 			}
 		}
 	}
@@ -985,17 +731,29 @@ namespace DataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StudentFaculty")]
-	public partial class StudentFaculty : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Student")]
+	public partial class Student : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _Stu_Code;
 		
-		private int _Fac_Code;
+		private string _Stu_Name;
 		
-		private int _Spe_Code;
+		private System.DateTime _Stu_DateOfBirth;
+		
+		private string _Stu_HomeTown;
+		
+		private string _Stu_Address;
+		
+		private string _Stu_PhoneNumber;
+		
+		private string _Stu_Religion;
+		
+		private string _Stu_Ethnic;
+		
+		private System.Nullable<int> _Stu_StudyStatus;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1003,13 +761,25 @@ namespace DataAccess
     partial void OnCreated();
     partial void OnStu_CodeChanging(string value);
     partial void OnStu_CodeChanged();
-    partial void OnFac_CodeChanging(int value);
-    partial void OnFac_CodeChanged();
-    partial void OnSpe_CodeChanging(int value);
-    partial void OnSpe_CodeChanged();
+    partial void OnStu_NameChanging(string value);
+    partial void OnStu_NameChanged();
+    partial void OnStu_DateOfBirthChanging(System.DateTime value);
+    partial void OnStu_DateOfBirthChanged();
+    partial void OnStu_HomeTownChanging(string value);
+    partial void OnStu_HomeTownChanged();
+    partial void OnStu_AddressChanging(string value);
+    partial void OnStu_AddressChanged();
+    partial void OnStu_PhoneNumberChanging(string value);
+    partial void OnStu_PhoneNumberChanged();
+    partial void OnStu_ReligionChanging(string value);
+    partial void OnStu_ReligionChanged();
+    partial void OnStu_EthnicChanging(string value);
+    partial void OnStu_EthnicChanged();
+    partial void OnStu_StudyStatusChanging(System.Nullable<int> value);
+    partial void OnStu_StudyStatusChanged();
     #endregion
 		
-		public StudentFaculty()
+		public Student()
 		{
 			OnCreated();
 		}
@@ -1034,248 +804,162 @@ namespace DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fac_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Fac_Code
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Stu_Name
 		{
 			get
 			{
-				return this._Fac_Code;
+				return this._Stu_Name;
 			}
 			set
 			{
-				if ((this._Fac_Code != value))
+				if ((this._Stu_Name != value))
 				{
-					this.OnFac_CodeChanging(value);
+					this.OnStu_NameChanging(value);
 					this.SendPropertyChanging();
-					this._Fac_Code = value;
-					this.SendPropertyChanged("Fac_Code");
-					this.OnFac_CodeChanged();
+					this._Stu_Name = value;
+					this.SendPropertyChanged("Stu_Name");
+					this.OnStu_NameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spe_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Spe_Code
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_DateOfBirth", DbType="DateTime NOT NULL")]
+		public System.DateTime Stu_DateOfBirth
 		{
 			get
 			{
-				return this._Spe_Code;
+				return this._Stu_DateOfBirth;
 			}
 			set
 			{
-				if ((this._Spe_Code != value))
+				if ((this._Stu_DateOfBirth != value))
 				{
-					this.OnSpe_CodeChanging(value);
+					this.OnStu_DateOfBirthChanging(value);
 					this.SendPropertyChanging();
-					this._Spe_Code = value;
-					this.SendPropertyChanged("Spe_Code");
-					this.OnSpe_CodeChanged();
+					this._Stu_DateOfBirth = value;
+					this.SendPropertyChanged("Stu_DateOfBirth");
+					this.OnStu_DateOfBirthChanged();
 				}
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Subject")]
-	public partial class Subject : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Sub_Code;
-		
-		private string _Sub_Name;
-		
-		private int _Sub_Credits;
-		
-		private bool _Sub_Type;
-		
-		private string _Sub_FacultyCode;
-		
-		private string _Sub_SpecializationCode;
-		
-		private double _Sub_Coefficient;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSub_CodeChanging(string value);
-    partial void OnSub_CodeChanged();
-    partial void OnSub_NameChanging(string value);
-    partial void OnSub_NameChanged();
-    partial void OnSub_CreditsChanging(int value);
-    partial void OnSub_CreditsChanged();
-    partial void OnSub_TypeChanging(bool value);
-    partial void OnSub_TypeChanged();
-    partial void OnSub_FacultyCodeChanging(string value);
-    partial void OnSub_FacultyCodeChanged();
-    partial void OnSub_SpecializationCodeChanging(string value);
-    partial void OnSub_SpecializationCodeChanged();
-    partial void OnSub_CoefficientChanging(double value);
-    partial void OnSub_CoefficientChanged();
-    #endregion
-		
-		public Subject()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Sub_Code
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_HomeTown", DbType="NVarChar(MAX)")]
+		public string Stu_HomeTown
 		{
 			get
 			{
-				return this._Sub_Code;
+				return this._Stu_HomeTown;
 			}
 			set
 			{
-				if ((this._Sub_Code != value))
+				if ((this._Stu_HomeTown != value))
 				{
-					this.OnSub_CodeChanging(value);
+					this.OnStu_HomeTownChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_Code = value;
-					this.SendPropertyChanged("Sub_Code");
-					this.OnSub_CodeChanged();
+					this._Stu_HomeTown = value;
+					this.SendPropertyChanged("Stu_HomeTown");
+					this.OnStu_HomeTownChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Sub_Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Address", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Stu_Address
 		{
 			get
 			{
-				return this._Sub_Name;
+				return this._Stu_Address;
 			}
 			set
 			{
-				if ((this._Sub_Name != value))
+				if ((this._Stu_Address != value))
 				{
-					this.OnSub_NameChanging(value);
+					this.OnStu_AddressChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_Name = value;
-					this.SendPropertyChanged("Sub_Name");
-					this.OnSub_NameChanged();
+					this._Stu_Address = value;
+					this.SendPropertyChanged("Stu_Address");
+					this.OnStu_AddressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Credits", DbType="Int NOT NULL")]
-		public int Sub_Credits
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_PhoneNumber", DbType="NVarChar(30)")]
+		public string Stu_PhoneNumber
 		{
 			get
 			{
-				return this._Sub_Credits;
+				return this._Stu_PhoneNumber;
 			}
 			set
 			{
-				if ((this._Sub_Credits != value))
+				if ((this._Stu_PhoneNumber != value))
 				{
-					this.OnSub_CreditsChanging(value);
+					this.OnStu_PhoneNumberChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_Credits = value;
-					this.SendPropertyChanged("Sub_Credits");
-					this.OnSub_CreditsChanged();
+					this._Stu_PhoneNumber = value;
+					this.SendPropertyChanged("Stu_PhoneNumber");
+					this.OnStu_PhoneNumberChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Type", DbType="Bit NOT NULL")]
-		public bool Sub_Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Religion", DbType="NVarChar(50)")]
+		public string Stu_Religion
 		{
 			get
 			{
-				return this._Sub_Type;
+				return this._Stu_Religion;
 			}
 			set
 			{
-				if ((this._Sub_Type != value))
+				if ((this._Stu_Religion != value))
 				{
-					this.OnSub_TypeChanging(value);
+					this.OnStu_ReligionChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_Type = value;
-					this.SendPropertyChanged("Sub_Type");
-					this.OnSub_TypeChanged();
+					this._Stu_Religion = value;
+					this.SendPropertyChanged("Stu_Religion");
+					this.OnStu_ReligionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_FacultyCode", DbType="NChar(10)")]
-		public string Sub_FacultyCode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Ethnic", DbType="NVarChar(50)")]
+		public string Stu_Ethnic
 		{
 			get
 			{
-				return this._Sub_FacultyCode;
+				return this._Stu_Ethnic;
 			}
 			set
 			{
-				if ((this._Sub_FacultyCode != value))
+				if ((this._Stu_Ethnic != value))
 				{
-					this.OnSub_FacultyCodeChanging(value);
+					this.OnStu_EthnicChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_FacultyCode = value;
-					this.SendPropertyChanged("Sub_FacultyCode");
-					this.OnSub_FacultyCodeChanged();
+					this._Stu_Ethnic = value;
+					this.SendPropertyChanged("Stu_Ethnic");
+					this.OnStu_EthnicChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_SpecializationCode", DbType="NChar(10)")]
-		public string Sub_SpecializationCode
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_StudyStatus", DbType="Int")]
+		public System.Nullable<int> Stu_StudyStatus
 		{
 			get
 			{
-				return this._Sub_SpecializationCode;
+				return this._Stu_StudyStatus;
 			}
 			set
 			{
-				if ((this._Sub_SpecializationCode != value))
+				if ((this._Stu_StudyStatus != value))
 				{
-					this.OnSub_SpecializationCodeChanging(value);
+					this.OnStu_StudyStatusChanging(value);
 					this.SendPropertyChanging();
-					this._Sub_SpecializationCode = value;
-					this.SendPropertyChanged("Sub_SpecializationCode");
-					this.OnSub_SpecializationCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Coefficient", DbType="Float NOT NULL")]
-		public double Sub_Coefficient
-		{
-			get
-			{
-				return this._Sub_Coefficient;
-			}
-			set
-			{
-				if ((this._Sub_Coefficient != value))
-				{
-					this.OnSub_CoefficientChanging(value);
-					this.SendPropertyChanging();
-					this._Sub_Coefficient = value;
-					this.SendPropertyChanged("Sub_Coefficient");
-					this.OnSub_CoefficientChanged();
+					this._Stu_StudyStatus = value;
+					this.SendPropertyChanged("Stu_StudyStatus");
+					this.OnStu_StudyStatusChanged();
 				}
 			}
 		}
@@ -1641,6 +1325,140 @@ namespace DataAccess
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TimeTableCourse")]
+	public partial class TimeTableCourse : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Ter_Code;
+		
+		private string _Sub_Code;
+		
+		private System.Nullable<int> _Tea_Code;
+		
+		private string _Ttc_Room;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTer_CodeChanging(int value);
+    partial void OnTer_CodeChanged();
+    partial void OnSub_CodeChanging(string value);
+    partial void OnSub_CodeChanged();
+    partial void OnTea_CodeChanging(System.Nullable<int> value);
+    partial void OnTea_CodeChanged();
+    partial void OnTtc_RoomChanging(string value);
+    partial void OnTtc_RoomChanged();
+    #endregion
+		
+		public TimeTableCourse()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ter_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Ter_Code
+		{
+			get
+			{
+				return this._Ter_Code;
+			}
+			set
+			{
+				if ((this._Ter_Code != value))
+				{
+					this.OnTer_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Ter_Code = value;
+					this.SendPropertyChanged("Ter_Code");
+					this.OnTer_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Sub_Code
+		{
+			get
+			{
+				return this._Sub_Code;
+			}
+			set
+			{
+				if ((this._Sub_Code != value))
+				{
+					this.OnSub_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Code = value;
+					this.SendPropertyChanged("Sub_Code");
+					this.OnSub_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_Code", DbType="Int")]
+		public System.Nullable<int> Tea_Code
+		{
+			get
+			{
+				return this._Tea_Code;
+			}
+			set
+			{
+				if ((this._Tea_Code != value))
+				{
+					this.OnTea_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Tea_Code = value;
+					this.SendPropertyChanged("Tea_Code");
+					this.OnTea_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ttc_Room", DbType="NChar(10)")]
+		public string Ttc_Room
+		{
+			get
+			{
+				return this._Ttc_Room;
+			}
+			set
+			{
+				if ((this._Ttc_Room != value))
+				{
+					this.OnTtc_RoomChanging(value);
+					this.SendPropertyChanging();
+					this._Ttc_Room = value;
+					this.SendPropertyChanged("Ttc_Room");
+					this.OnTtc_RoomChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Term")]
 	public partial class Term : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1799,140 +1617,6 @@ namespace DataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TimeTableCourse")]
-	public partial class TimeTableCourse : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Ter_Code;
-		
-		private string _Sub_Code;
-		
-		private System.Nullable<int> _Tea_Code;
-		
-		private string _Ttc_Room;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTer_CodeChanging(int value);
-    partial void OnTer_CodeChanged();
-    partial void OnSub_CodeChanging(string value);
-    partial void OnSub_CodeChanged();
-    partial void OnTea_CodeChanging(System.Nullable<int> value);
-    partial void OnTea_CodeChanged();
-    partial void OnTtc_RoomChanging(string value);
-    partial void OnTtc_RoomChanged();
-    #endregion
-		
-		public TimeTableCourse()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ter_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Ter_Code
-		{
-			get
-			{
-				return this._Ter_Code;
-			}
-			set
-			{
-				if ((this._Ter_Code != value))
-				{
-					this.OnTer_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._Ter_Code = value;
-					this.SendPropertyChanged("Ter_Code");
-					this.OnTer_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Sub_Code
-		{
-			get
-			{
-				return this._Sub_Code;
-			}
-			set
-			{
-				if ((this._Sub_Code != value))
-				{
-					this.OnSub_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._Sub_Code = value;
-					this.SendPropertyChanged("Sub_Code");
-					this.OnSub_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_Code", DbType="Int")]
-		public System.Nullable<int> Tea_Code
-		{
-			get
-			{
-				return this._Tea_Code;
-			}
-			set
-			{
-				if ((this._Tea_Code != value))
-				{
-					this.OnTea_CodeChanging(value);
-					this.SendPropertyChanging();
-					this._Tea_Code = value;
-					this.SendPropertyChanged("Tea_Code");
-					this.OnTea_CodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ttc_Room", DbType="NChar(10)")]
-		public string Ttc_Room
-		{
-			get
-			{
-				return this._Ttc_Room;
-			}
-			set
-			{
-				if ((this._Ttc_Room != value))
-				{
-					this.OnTtc_RoomChanging(value);
-					this.SendPropertyChanging();
-					this._Ttc_Room = value;
-					this.SendPropertyChanged("Ttc_Room");
-					this.OnTtc_RoomChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1943,6 +1627,16 @@ namespace DataAccess
 		
 		private string _Use_Password;
 		
+		private string _Use_PersonName;
+		
+		private System.Nullable<System.DateTime> _Use_DateOfBirth;
+		
+		private string _Use_Email;
+		
+		private string _Use_PhoneNumber;
+		
+		private System.Nullable<int> _Use_Status;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1951,6 +1645,16 @@ namespace DataAccess
     partial void OnUse_NameChanged();
     partial void OnUse_PasswordChanging(string value);
     partial void OnUse_PasswordChanged();
+    partial void OnUse_PersonNameChanging(string value);
+    partial void OnUse_PersonNameChanged();
+    partial void OnUse_DateOfBirthChanging(System.Nullable<System.DateTime> value);
+    partial void OnUse_DateOfBirthChanged();
+    partial void OnUse_EmailChanging(string value);
+    partial void OnUse_EmailChanged();
+    partial void OnUse_PhoneNumberChanging(string value);
+    partial void OnUse_PhoneNumberChanged();
+    partial void OnUse_StatusChanging(System.Nullable<int> value);
+    partial void OnUse_StatusChanged();
     #endregion
 		
 		public User()
@@ -1994,6 +1698,446 @@ namespace DataAccess
 					this._Use_Password = value;
 					this.SendPropertyChanged("Use_Password");
 					this.OnUse_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Use_PersonName", DbType="NChar(10)")]
+		public string Use_PersonName
+		{
+			get
+			{
+				return this._Use_PersonName;
+			}
+			set
+			{
+				if ((this._Use_PersonName != value))
+				{
+					this.OnUse_PersonNameChanging(value);
+					this.SendPropertyChanging();
+					this._Use_PersonName = value;
+					this.SendPropertyChanged("Use_PersonName");
+					this.OnUse_PersonNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Use_DateOfBirth", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Use_DateOfBirth
+		{
+			get
+			{
+				return this._Use_DateOfBirth;
+			}
+			set
+			{
+				if ((this._Use_DateOfBirth != value))
+				{
+					this.OnUse_DateOfBirthChanging(value);
+					this.SendPropertyChanging();
+					this._Use_DateOfBirth = value;
+					this.SendPropertyChanged("Use_DateOfBirth");
+					this.OnUse_DateOfBirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Use_Email", DbType="NChar(50)")]
+		public string Use_Email
+		{
+			get
+			{
+				return this._Use_Email;
+			}
+			set
+			{
+				if ((this._Use_Email != value))
+				{
+					this.OnUse_EmailChanging(value);
+					this.SendPropertyChanging();
+					this._Use_Email = value;
+					this.SendPropertyChanged("Use_Email");
+					this.OnUse_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Use_PhoneNumber", DbType="NChar(50)")]
+		public string Use_PhoneNumber
+		{
+			get
+			{
+				return this._Use_PhoneNumber;
+			}
+			set
+			{
+				if ((this._Use_PhoneNumber != value))
+				{
+					this.OnUse_PhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Use_PhoneNumber = value;
+					this.SendPropertyChanged("Use_PhoneNumber");
+					this.OnUse_PhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Use_Status", DbType="Int")]
+		public System.Nullable<int> Use_Status
+		{
+			get
+			{
+				return this._Use_Status;
+			}
+			set
+			{
+				if ((this._Use_Status != value))
+				{
+					this.OnUse_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Use_Status = value;
+					this.SendPropertyChanged("Use_Status");
+					this.OnUse_StatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StudentFaculty")]
+	public partial class StudentFaculty : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Stu_Code;
+		
+		private int _Fac_Code;
+		
+		private int _Spe_Code;
+		
+		private System.Nullable<int> _Sfa_Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnStu_CodeChanging(string value);
+    partial void OnStu_CodeChanged();
+    partial void OnFac_CodeChanging(int value);
+    partial void OnFac_CodeChanged();
+    partial void OnSpe_CodeChanging(int value);
+    partial void OnSpe_CodeChanged();
+    partial void OnSfa_StatusChanging(System.Nullable<int> value);
+    partial void OnSfa_StatusChanged();
+    #endregion
+		
+		public StudentFaculty()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Stu_Code
+		{
+			get
+			{
+				return this._Stu_Code;
+			}
+			set
+			{
+				if ((this._Stu_Code != value))
+				{
+					this.OnStu_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_Code = value;
+					this.SendPropertyChanged("Stu_Code");
+					this.OnStu_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fac_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Fac_Code
+		{
+			get
+			{
+				return this._Fac_Code;
+			}
+			set
+			{
+				if ((this._Fac_Code != value))
+				{
+					this.OnFac_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Fac_Code = value;
+					this.SendPropertyChanged("Fac_Code");
+					this.OnFac_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Spe_Code", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Spe_Code
+		{
+			get
+			{
+				return this._Spe_Code;
+			}
+			set
+			{
+				if ((this._Spe_Code != value))
+				{
+					this.OnSpe_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Spe_Code = value;
+					this.SendPropertyChanged("Spe_Code");
+					this.OnSpe_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sfa_Status", DbType="Int")]
+		public System.Nullable<int> Sfa_Status
+		{
+			get
+			{
+				return this._Sfa_Status;
+			}
+			set
+			{
+				if ((this._Sfa_Status != value))
+				{
+					this.OnSfa_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Sfa_Status = value;
+					this.SendPropertyChanged("Sfa_Status");
+					this.OnSfa_StatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Subject")]
+	public partial class Subject : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _Sub_Code;
+		
+		private string _Sub_Name;
+		
+		private int _Sub_Credits;
+		
+		private int _Sub_Type;
+		
+		private System.Nullable<int> _Sub_FacultyCode;
+		
+		private System.Nullable<int> _Sub_SpecializationCode;
+		
+		private double _Sub_Coefficient;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSub_CodeChanging(string value);
+    partial void OnSub_CodeChanged();
+    partial void OnSub_NameChanging(string value);
+    partial void OnSub_NameChanged();
+    partial void OnSub_CreditsChanging(int value);
+    partial void OnSub_CreditsChanged();
+    partial void OnSub_TypeChanging(int value);
+    partial void OnSub_TypeChanged();
+    partial void OnSub_FacultyCodeChanging(System.Nullable<int> value);
+    partial void OnSub_FacultyCodeChanged();
+    partial void OnSub_SpecializationCodeChanging(System.Nullable<int> value);
+    partial void OnSub_SpecializationCodeChanged();
+    partial void OnSub_CoefficientChanging(double value);
+    partial void OnSub_CoefficientChanged();
+    #endregion
+		
+		public Subject()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Code", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Sub_Code
+		{
+			get
+			{
+				return this._Sub_Code;
+			}
+			set
+			{
+				if ((this._Sub_Code != value))
+				{
+					this.OnSub_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Code = value;
+					this.SendPropertyChanged("Sub_Code");
+					this.OnSub_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Sub_Name
+		{
+			get
+			{
+				return this._Sub_Name;
+			}
+			set
+			{
+				if ((this._Sub_Name != value))
+				{
+					this.OnSub_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Name = value;
+					this.SendPropertyChanged("Sub_Name");
+					this.OnSub_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Credits", DbType="Int NOT NULL")]
+		public int Sub_Credits
+		{
+			get
+			{
+				return this._Sub_Credits;
+			}
+			set
+			{
+				if ((this._Sub_Credits != value))
+				{
+					this.OnSub_CreditsChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Credits = value;
+					this.SendPropertyChanged("Sub_Credits");
+					this.OnSub_CreditsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Type", DbType="Int NOT NULL")]
+		public int Sub_Type
+		{
+			get
+			{
+				return this._Sub_Type;
+			}
+			set
+			{
+				if ((this._Sub_Type != value))
+				{
+					this.OnSub_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Type = value;
+					this.SendPropertyChanged("Sub_Type");
+					this.OnSub_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_FacultyCode", DbType="Int")]
+		public System.Nullable<int> Sub_FacultyCode
+		{
+			get
+			{
+				return this._Sub_FacultyCode;
+			}
+			set
+			{
+				if ((this._Sub_FacultyCode != value))
+				{
+					this.OnSub_FacultyCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_FacultyCode = value;
+					this.SendPropertyChanged("Sub_FacultyCode");
+					this.OnSub_FacultyCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_SpecializationCode", DbType="Int")]
+		public System.Nullable<int> Sub_SpecializationCode
+		{
+			get
+			{
+				return this._Sub_SpecializationCode;
+			}
+			set
+			{
+				if ((this._Sub_SpecializationCode != value))
+				{
+					this.OnSub_SpecializationCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_SpecializationCode = value;
+					this.SendPropertyChanged("Sub_SpecializationCode");
+					this.OnSub_SpecializationCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sub_Coefficient", DbType="Float NOT NULL")]
+		public double Sub_Coefficient
+		{
+			get
+			{
+				return this._Sub_Coefficient;
+			}
+			set
+			{
+				if ((this._Sub_Coefficient != value))
+				{
+					this.OnSub_CoefficientChanging(value);
+					this.SendPropertyChanging();
+					this._Sub_Coefficient = value;
+					this.SendPropertyChanged("Sub_Coefficient");
+					this.OnSub_CoefficientChanged();
 				}
 			}
 		}

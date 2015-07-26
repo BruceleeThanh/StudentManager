@@ -13,7 +13,7 @@ using DataAccess;
 using BusinessLogic;
 
 namespace SchoolManager.Form_Task {
-    public partial class frmTsk_UpdateSubject : DevExpress.XtraEditors.XtraForm {
+    public partial class UpdateSubject : DevExpress.XtraEditors.XtraForm {
 
         private SubjectBO aSubjectBO = new SubjectBO ();
         private FacultyBO aFacultyBO = new FacultyBO ();
@@ -22,7 +22,7 @@ namespace SchoolManager.Form_Task {
         private Subject aSubject = new Subject ();
         bool Click;
 
-        public frmTsk_UpdateSubject( ) {
+        public UpdateSubject( ) {
             InitializeComponent ();
         }
 

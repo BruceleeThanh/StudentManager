@@ -17,7 +17,7 @@ namespace BusinessLogic
 		{
 			try
 			{
-				return db.Teachers.OrderByDescending(b => b.Tea_Code).ToList<Teacher>();
+				return db.Teachers.OrderBy(b => b.Tea_Code).ToList<Teacher>();
 			}
 			catch (Exception ex)
 			{

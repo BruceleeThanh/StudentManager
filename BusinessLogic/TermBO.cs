@@ -14,7 +14,7 @@ namespace BusinessLogic {
 
         public List<Term> Select_All( ) {
             try {
-                return db.Terms.OrderByDescending ( b => b.Ter_Code ).ToList<Term> ( );
+                return db.Terms.OrderBy ( b => b.Ter_Code ).ToList<Term> ( );
             }
             catch(Exception ex) {
                 throw new Exception ( "TermBO.Select_All" + ex.ToString ( ) );

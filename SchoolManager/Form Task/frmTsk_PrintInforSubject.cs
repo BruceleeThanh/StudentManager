@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
 namespace SchoolManager.Form_Task {
-    public partial class frmTsk_PrintInforSubject : DevExpress.XtraEditors.XtraForm {
-        public frmTsk_PrintInforSubject( ) {
+    public partial class PrintInforSubject : DevExpress.XtraEditors.XtraForm {
+        public PrintInforSubject( ) {
             InitializeComponent ();
         }
     }

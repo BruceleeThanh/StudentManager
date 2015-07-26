@@ -16,7 +16,7 @@ namespace BusinessLogic {
         // Select all Student from DB 
         public List<Student> Select_All () {
             try {
-                return db.Students.OrderByDescending(b => b.Stu_Code).ToList<Student>();
+                return db.Students.OrderBy(b => b.Stu_Code).ToList<Student>();
             }
             catch (Exception ex){
                 throw new Exception("StudentBO.Select_All:" + ex.ToString());

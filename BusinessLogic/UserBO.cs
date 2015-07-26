@@ -68,7 +68,32 @@ namespace BusinessLogic
 				throw new Exception("UserBO.Insert" + ex.ToString());
 			}
 		}
+		// Login
+		public bool Login(string name, string password)
+		{
+			try
+			{
+			
+				string passSHA1;
+				passSHA1 = ToSHA1(password);
+				var user = db.Users.Where(b => b.Use_Name == name).Where(b => b.Use_Password == passSHA1).ToList<User>();
+				if (user.Any())
+				{
+					
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 
+			}
+			catch (Exception ex)
+			{
+
+				throw new Exception("UserBO.Login" + ex.ToString());
+			}
+		}
         // Update
         public bool Update (User aUser) {
             try {
@@ -114,6 +139,7 @@ namespace BusinessLogic
             pass = s.ToString();
             return pass;
         }
+		
 		
 	}
 }

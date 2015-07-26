@@ -10,12 +10,31 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using SchoolManager.Entity;
 using SchoolManager.Form_Task;
+using SchoolManager.Control;
+using DataAccess;
+using BusinessLogic;
 
 namespace SchoolManager.Design {
     public partial class Main : DevExpress.XtraBars.Ribbon.RibbonForm {
-        public Main () {
-            InitializeComponent();
-        }
+		 
+
+		public Main( )
+		{
+			InitializeComponent();
+			
+		}
+		private void LoadData(object sender , EventArgs e)
+		{
+			try
+			{
+				
+				
+			}
+			catch (Exception ex)
+			{
+				throw new Exception(ex.ToString());
+			}
+		}
 		// LoiNT 
 		// Add Student button
 		private void barBtnAddStudent_ItemClick(object sender, ItemClickEventArgs e)
@@ -58,17 +77,21 @@ namespace SchoolManager.Design {
         private void barBtnSearchStu_ItemClick( object sender, ItemClickEventArgs e ) {
 
         }
-
-        private void barBtnUpdateTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
-
+		
+        private void barBtnUpdateTeacher_ItemClick( object sender, ItemClickEventArgs e) {
+			frmTsk_UpdateTeacher aFrmTsk = new frmTsk_UpdateTeacher();
+			aFrmTsk.Show();
+			
         }
 
         private void barBtnPrintTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
-
+			frmTsk_DisplayInforTeacher aFrmTsk = new frmTsk_DisplayInforTeacher();
+			aFrmTsk.Show();
         }
 
         private void barBtnExcuteSalary_ItemClick( object sender, ItemClickEventArgs e ) {
-
+			frmTsk_SalaryTable aFrmTsk = new frmTsk_SalaryTable();
+			aFrmTsk.Show();
         }
 
         private void barBtnSearchTeacher_ItemClick( object sender, ItemClickEventArgs e ) {
@@ -76,15 +99,26 @@ namespace SchoolManager.Design {
         }
 
         private void barBtnAddSubject_ItemClick( object sender, ItemClickEventArgs e ) {
-
+			frmTsk_AddSubject aFrmTsk = new frmTsk_AddSubject();
+			aFrmTsk.Show();
         }
 
         private void barBtnUpdateSubject_ItemClick( object sender, ItemClickEventArgs e ) {
-
+			
+			UpdateSubject aFrmTsk = new UpdateSubject();
+			try
+			{
+				aFrmTsk.Show();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
         }
 
         private void barBtnPrintInforSubject_ItemClick( object sender, ItemClickEventArgs e ) {
-
+			PrintInforSubject aFrmTsk = new PrintInforSubject();
+			aFrmTsk.Show();
         }
 
         private void barBtnSearchSubject_ItemClick( object sender, ItemClickEventArgs e ) {
@@ -137,7 +171,7 @@ namespace SchoolManager.Design {
 
         private void barBtnInforSystemUser_ItemClick( object sender, ItemClickEventArgs e ) {
 
-        }
+		}
 		
     }
 }
